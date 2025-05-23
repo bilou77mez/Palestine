@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Palestine</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: radial-gradient(ellipse at center, #1a1a1a 0%, #0a0a0a 100%);
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 30% 20%, rgba(206, 17, 38, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 70% 80%, rgba(0, 122, 61, 0.06) 0%, transparent 50%);
+            animation: ambient 15s ease-in-out infinite;
+            z-index: -1;
+        }
+
+        @keyframes ambient {
+            0%, 100% { opacity: 0.5; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.02); }
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 3rem;
+            padding: 2rem;
+        }
+
+        .flag {
+            width: 160px;
+            height: 107px;
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 
+                0 25px 50px rgba(0,0,0,0.4),
+                0 0 0 1px rgba(255,255,255,0.05);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .flag:hover {
+            transform: scale(1.05) rotateY(5deg);
+            box-shadow: 
+                0 35px 70px rgba(206, 17, 38, 0.2),
+                0 0 0 1px rgba(255,255,255,0.1);
+        }
+
+        .stripe {
+            width: 100%;
+            height: 33.33%;
+            position: relative;
+        }
+
+        .stripe-black { 
+            background: linear-gradient(135deg, #000 0%, #1a1a1a 100%); 
+        }
+        .stripe-white { 
+            background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%); 
+        }
+        .stripe-green { 
+            background: linear-gradient(135deg, #007a3d 0%, #005a2d 100%); 
+        }
+
+        .triangle {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 0;
+            height: 0;
+            border-top: 53.5px solid transparent;
+            border-bottom: 53.5px solid transparent;
+            border-left: 64px solid #ce1126;
+            filter: drop-shadow(2px 0 4px rgba(0,0,0,0.2));
+        }
+
+        .title {
+            font-size: clamp(3rem, 12vw, 6rem);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, #ce1126 0%, #ffffff 40%, #007a3d 100%);
+            background-size: 200% 200%;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shimmer 4s ease-in-out infinite;
+            text-shadow: 0 0 40px rgba(206, 17, 38, 0.3);
+            margin-bottom: 1rem;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .subtitle {
+            font-size: clamp(1rem, 4vw, 1.4rem);
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 500px;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+
+        .message {
+            font-size: clamp(0.9rem, 3vw, 1.1rem);
+            color: rgba(255, 255, 255, 0.6);
+            font-weight: 400;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        /* Floating particles */
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(206, 17, 38, 0.6);
+            border-radius: 50%;
+            animation: float 8s linear infinite;
+            z-index: -1;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-10vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .container {
+                gap: 2rem;
+                padding: 1rem;
+            }
+            
+            .flag {
+                width: 120px;
+                height: 80px;
+            }
+            
+            .triangle {
+                border-top: 40px solid transparent;
+                border-bottom: 40px solid transparent;
+                border-left: 48px solid #ce1126;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .flag {
+                width: 100px;
+                height: 67px;
+            }
+            
+            .triangle {
+                border-top: 33.5px solid transparent;
+                border-bottom: 33.5px solid transparent;
+                border-left: 40px solid #ce1126;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="flag">
+            <div class="stripe stripe-black"></div>
+            <div class="stripe stripe-white"></div>
+            <div class="stripe stripe-green"></div>
+            <div class="triangle"></div>
+        </div>
+        
+        <div>
+            <h1 class="title">Free Palestine</h1>
+            <p class="subtitle">Justice, peace, and freedom for the Palestinian people</p>
+            <div class="message">Stand with Palestine</div>
+        </div>
+    </div>
+
+    <script>
+        // Create floating particles
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 2 + 's';
+            particle.style.animationDuration = (Math.random() * 4 + 6) + 's';
+            
+            // Random colors from Palestinian flag
+            const colors = ['rgba(206, 17, 38, 0.6)', 'rgba(0, 122, 61, 0.4)', 'rgba(255, 255, 255, 0.3)'];
+            particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+            
+            document.body.appendChild(particle);
+            
+            setTimeout(() => {
+                particle.remove();
+            }, 8000);
+        }
+
+        // Create particles periodically
+        setInterval(createParticle, 800);
+        
+        // Initial particles
+        for (let i = 0; i < 5; i++) {
+            setTimeout(createParticle, i * 200);
+        }
+    </script>
+</body>
+</html>
