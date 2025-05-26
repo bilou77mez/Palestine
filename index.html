@@ -1,91 +1,1186 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Free Palestine</title>
+    <title>Lex Élégance | Cabinet d'Avocats Premium</title>
+    <meta name="description" content="Lex Élégance - Cabinet d'avocats haut de gamme spécialisé en droit des affaires, fiscalité internationale et droit numérique.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@100;200;300;400;500;600;700&display=swap');
+        
+        :root {
+            --primary: #0a0a0a;
+            --secondary: #1a1a1a;
+            --accent: #d4af37;
+            --light: #f5f5f5;
+            --dark: #121212;
+            --glass: rgba(255, 255, 255, 0.05);
         }
-
+        
         body {
-            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-            background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
-            color: white;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--primary);
+            color: var(--light);
+            overflow-x: hidden;
         }
-
-        .flag {
-            width: 120px;
-            height: 80px;
-            margin-bottom: 2rem;
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+        }
+        
+        .hero-gradient {
+            background: radial-gradient(circle at 70% 30%, #1a1a1a 0%, #0a0a0a 70%);
+        }
+        
+        .btn-gold {
+            background: linear-gradient(135deg, var(--accent) 0%, #f1c40f 100%);
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
+        }
+        
+        .btn-gold:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+        }
+        
+        .glass-card {
+            background: var(--glass);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        
+        .glass-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+            border-color: rgba(212, 175, 55, 0.3);
+        }
+        
+        .price-card {
+            transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .price-card:hover {
+            transform: scale(1.03);
+            border-color: var(--accent);
+        }
+        
+        .price-card.popular {
+            border: 2px solid var(--accent);
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
+        }
+        
+        .nav-link {
             position: relative;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
         }
-
-        .stripe {
-            width: 100%;
-            height: 33.33%;
-        }
-
-        .black { background: #000; }
-        .white { background: #fff; }
-        .green { background: #007a3d; }
-
-        .triangle {
+        
+        .nav-link::after {
+            content: '';
             position: absolute;
-            left: 0;
-            top: 0;
             width: 0;
-            height: 0;
-            border-top: 40px solid transparent;
-            border-bottom: 40px solid transparent;
-            border-left: 48px solid #ce1126;
+            height: 1px;
+            bottom: -3px;
+            left: 0;
+            background-color: var(--accent);
+            transition: width 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
-
-        h1 {
-            font-size: 4rem;
-            font-weight: 800;
-            background: linear-gradient(45deg, #ce1126, #fff, #007a3d);
-            background-clip: text;
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .floating-label {
+            position: absolute;
+            top: 50%;
+            left: 15px;
+            transform: translateY(-50%);
+            transition: all 0.3s ease;
+            pointer-events: none;
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        .input-field:focus + .floating-label,
+        .input-field:not(:placeholder-shown) + .floating-label {
+            top: 0;
+            left: 10px;
+            font-size: 0.75rem;
+            background: var(--primary);
+            padding: 0 5px;
+            color: var(--accent);
+        }
+        
+        .parallax-bg {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        
+        .text-stroke {
+            -webkit-text-stroke: 1px var(--accent);
+            color: transparent;
+        }
+        
+        .hover-zoom {
+            transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        
+        .hover-zoom:hover {
+            transform: scale(1.05);
+        }
+        
+        .floating {
+            animation: floating 6s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .pulse {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        .glow {
+            filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.6));
+        }
+        
+        .text-gradient {
+            background: linear-gradient(90deg, #d4af37, #f1c40f);
             -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 1rem;
+            background-clip: text;
+            color: transparent;
         }
-
-        p {
-            font-size: 1.2rem;
-            color: #ccc;
-            max-width: 600px;
-            line-height: 1.6;
+        
+        .border-glow {
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
         }
-
+        
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        
+        .scroll-reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .map-container {
+            height: 400px;
+            width: 100%;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.03);
+            border-left: 3px solid var(--accent);
+        }
+        
+        .appointment-form input, 
+        .appointment-form select, 
+        .appointment-form textarea {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+        
+        .appointment-form input:focus, 
+        .appointment-form select:focus, 
+        .appointment-form textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.3);
+        }
+        
+        .gradient-border {
+            position: relative;
+        }
+        
+        .gradient-border::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            padding: 1px;
+            background: linear-gradient(135deg, var(--accent), rgba(212, 175, 55, 0.3));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+        
         @media (max-width: 768px) {
-            h1 { font-size: 2.5rem; }
-            p { font-size: 1rem; padding: 0 1rem; }
+            .hero-content {
+                padding-top: 100px;
+            }
+            
+            .map-container {
+                height: 300px;
+            }
+            
+            .parallax-bg {
+                background-attachment: scroll;
+            }
         }
     </style>
 </head>
-<body>
-    <div class="flag">
-        <div class="stripe black"></div>
-        <div class="stripe white"></div>
-        <div class="stripe green"></div>
-        <div class="triangle"></div>
-    </div>
-    
-    <h1>Free Palestine</h1>
-    
-    <p>Justice, peace, and freedom for the Palestinian people.</p>
+<body class="antialiased">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-black bg-opacity-90 backdrop-filter backdrop-blur-lg py-4 px-6 shadow-lg">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="flex items-center">
+                <a href="#" class="text-2xl font-bold text-white flex items-center" data-aos="fade-down">
+                    <span class="text-gradient mr-2">LEX</span>
+                    <span class="text-gray-300">ÉLÉGANCE</span>
+                </a>
+            </div>
+            
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="nav-link text-white hover:text-accent transition" data-aos="fade-down" data-aos-delay="100">Accueil</a>
+                <a href="#services" class="nav-link text-white hover:text-accent transition" data-aos="fade-down" data-aos-delay="150">Services</a>
+                <a href="#pricing" class="nav-link text-white hover:text-accent transition" data-aos="fade-down" data-aos-delay="200">Honoraires</a>
+                <a href="#team" class="nav-link text-white hover:text-accent transition" data-aos="fade-down" data-aos-delay="250">Équipe</a>
+                <a href="#contact" class="nav-link text-white hover:text-accent transition" data-aos="fade-down" data-aos-delay="300">Contact</a>
+            </div>
+            
+            <div class="hidden md:block" data-aos="fade-down" data-aos-delay="350">
+                <a href="#appointment" class="btn-gold text-black font-semibold px-6 py-2 rounded-full">Prendre RDV</a>
+            </div>
+            
+            <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none" data-aos="fade-down">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-black bg-opacity-95 mt-4 py-4 px-6 rounded-lg backdrop-filter backdrop-blur-lg">
+            <div class="flex flex-col space-y-4">
+                <a href="#home" class="text-white hover:text-accent transition">Accueil</a>
+                <a href="#services" class="text-white hover:text-accent transition">Services</a>
+                <a href="#pricing" class="text-white hover:text-accent transition">Honoraires</a>
+                <a href="#team" class="text-white hover:text-accent transition">Équipe</a>
+                <a href="#contact" class="text-white hover:text-accent transition">Contact</a>
+                <a href="#appointment" class="btn-gold text-black font-semibold px-6 py-2 rounded-full text-center">Prendre RDV</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-gradient min-h-screen flex items-center pt-20 pb-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <div class="absolute inset-0 bg-black opacity-60"></div>
+            <div class="absolute top-0 left-0 w-full h-full parallax-bg"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="hero-content" data-aos="fade-right">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+                        <span class="text-gradient">Excellence</span> Juridique <br>
+                        <span class="text-white">Redéfinie</span>
+                    </h1>
+                    <p class="text-lg md:text-xl text-gray-300 mb-8 max-w-lg">
+                        Lex Élégance incarne l'alliance parfaite entre tradition juridique et innovation, offrant un accompagnement sur-mesure pour une défense optimale de vos intérêts.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#appointment" class="btn-gold text-black font-semibold px-8 py-3 rounded-full" data-aos="zoom-in" data-aos-delay="300">
+                            Prendre rendez-vous <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                        <a href="#services" class="border border-accent text-accent font-semibold px-8 py-3 rounded-full hover:bg-accent hover:text-black transition" data-aos="zoom-in" data-aos-delay="400">
+                            Nos services
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="relative" data-aos="fade-left" data-aos-delay="200">
+                    <div class="relative z-10 rounded-xl overflow-hidden shadow-2xl hover-zoom">
+                        <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1180&q=80" 
+                             alt="Cabinet d'avocats Lex Élégance" 
+                             class="w-full h-auto object-cover" 
+                             loading="lazy">
+                    </div>
+                    <div class="absolute -inset-8 bg-accent opacity-20 rounded-xl blur-xl -z-10 floating"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-10">
+            <a href="#services" class="text-white animate-bounce inline-block" data-aos="fade-up" data-aos-delay="500">
+                <i class="fas fa-chevron-down text-2xl"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-16 bg-secondary relative overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <div class="absolute top-0 left-0 w-1/3 h-full bg-accent opacity-5"></div>
+            <div class="absolute bottom-0 right-0 w-1/3 h-full bg-accent opacity-5"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-4xl md:text-5xl font-bold text-accent mb-2">30+</div>
+                    <div class="text-gray-300 uppercase text-sm tracking-wider">Années d'expérience</div>
+                </div>
+                <div data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-4xl md:text-5xl font-bold text-accent mb-2">200+</div>
+                    <div class="text-gray-300 uppercase text-sm tracking-wider">Clients satisfaits</div>
+                </div>
+                <div data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-4xl md:text-5xl font-bold text-accent mb-2">99%</div>
+                    <div class="text-gray-300 uppercase text-sm tracking-wider">Taux de réussite</div>
+                </div>
+                <div data-aos="fade-up" data-aos-delay="400">
+                    <div class="text-4xl md:text-5xl font-bold text-accent mb-2">15</div>
+                    <div class="text-gray-300 uppercase text-sm tracking-wider">Spécialités juridiques</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-1/2 h-full bg-accent opacity-5 -z-10"></div>
+        
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Nos Domaines d'Expertise</h2>
+                <div class="w-20 h-1 bg-accent mx-auto mb-6"></div>
+                <p class="text-gray-400 max-w-2xl mx-auto">
+                    Une gamme complète de services juridiques haut de gamme adaptés aux besoins des clients les plus exigeants.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="glass-card p-8 rounded-xl" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-accent text-4xl mb-6 glow">
+                        <i class="fas fa-gavel"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Droit des Affaires</h3>
+                    <p class="text-gray-400 mb-4">
+                        Conseil stratégique en création d'entreprise, contrats commerciaux complexes, fusions-acquisitions transnationales et droit de la concurrence.
+                    </p>
+                    <a href="#" class="text-accent hover:text-yellow-300 font-medium flex items-center group">
+                        En savoir plus <i class="fas fa-arrow-right ml-2 transition-transform group-hover:translate-x-1"></i>
+                    </a>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="glass-card p-8 rounded-xl" data-aos="fade-up" data-aos-delay="150">
+                    <div class="text-accent text-4xl mb-6 glow">
+                        <i class="fas fa-landmark"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Droit Fiscal International</h3>
+                    <p class="text-gray-400 mb-4">
+                        Optimisation fiscale transfrontalière, contentieux fiscal complexe, conseil en TVA internationale et planification successorale globale.
+                    </p>
+                    <a href="#" class="text-accent hover:text-yellow-300 font-medium flex items-center group">
+                        En savoir plus <i class="fas fa-arrow-right ml-2 transition-transform group-hover:translate-x-1"></i>
+                    </a>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="glass-card p-8 rounded-xl" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-accent text-4xl mb-6 glow">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Droit International</h3>
+                    <p class="text-gray-400 mb-4">
+                        Investissements transfrontaliers stratégiques, droit des sociétés internationales et résolution de litiges internationaux complexes.
+                    </p>
+                    <a href="#" class="text-accent hover:text-yellow-300 font-medium flex items-center group">
+                        En savoir plus <i class="fas fa-arrow-right ml-2 transition-transform group-hover:translate-x-1"></i>
+                    </a>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="glass-card p-8 rounded-xl" data-aos="fade-up" data-aos-delay="250">
+                    <div class="text-accent text-4xl mb-6 glow">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Droit Immobilier Premium</h3>
+                    <p class="text-gray-400 mb-4">
+                        Transactions immobilières haut de gamme, baux commerciaux complexes et contentieux en droit de la construction luxe.
+                    </p>
+                    <a href="#" class="text-accent hover:text-yellow-300 font-medium flex items-center group">
+                        En savoir plus <i class="fas fa-arrow-right ml-2 transition-transform group-hover:translate-x-1"></i>
+                    </a>
+                </div>
+                
+                <!-- Service 5 -->
+                <div class="glass-card p-8 rounded-xl" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-accent text-4xl mb-6 glow">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Droit du Travail Élite</h3>
+                    <p class="text-gray-400 mb-4">
+                        Conseil aux entreprises et dirigeants, contentieux prud'homal complexe et rédaction de contrats de travail haut de gamme.
+                    </p>
+                    <a href="#" class="text-accent hover:text-yellow-300 font-medium flex items-center group">
+                        En savoir plus <i class="fas fa-arrow-right ml-2 transition-transform group-hover:translate-x-1"></i>
+                    </a>
+                </div>
+                
+                <!-- Service 6 -->
+                <div class="glass-card p-8 rounded-xl" data-aos="fade-up" data-aos-delay="350">
+                    <div class="text-accent text-4xl mb-6 glow">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Propriété Intellectuelle</h3>
+                    <p class="text-gray-400 mb-4">
+                        Protection des marques et brevets internationaux, droits d'auteur et lutte contre la contrefaçon de luxe.
+                    </p>
+                    <a href="#" class="text-accent hover:text-yellow-300 font-medium flex items-center group">
+                        En savoir plus <i class="fas fa-arrow-right ml-2 transition-transform group-hover:translate-x-1"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="py-20 bg-secondary px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-full opacity-10 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] -z-10"></div>
+        
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Notre Équipe d'Experts</h2>
+                <div class="w-20 h-1 bg-accent mx-auto mb-6"></div>
+                <p class="text-gray-400 max-w-2xl mx-auto">
+                    Des avocats expérimentés et spécialisés à votre service pour une défense optimale de vos intérêts.
+                </p>
+            </div>
+            
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Team Member 1 -->
+                <div data-aos="fade-up" data-aos-delay="100">
+                    <div class="bg-primary rounded-xl overflow-hidden shadow-lg transition-all hover:border-glow hover-zoom gradient-border">
+                        <div class="relative overflow-hidden h-80">
+                            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" 
+                                 alt="Maître Jean Dupont" 
+                                 class="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
+                                 loading="lazy">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-80"></div>
+                            <div class="absolute bottom-0 left-0 p-6">
+                                <h3 class="text-xl font-bold text-white">Maître Jean Dupont</h3>
+                                <p class="text-accent">Droit des Affaires</p>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <p class="text-gray-400 mb-4">
+                                Avocat au Barreau de Paris depuis 2005, spécialiste en droit des sociétés et fusions-acquisitions transnationales.
+                            </p>
+                            <div class="flex space-x-4">
+                                <a href="#" class="text-gray-400 hover:text-accent transition">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="#" class="text-gray-400 hover:text-accent transition">
+                                    <i class="fas fa-envelope"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Team Member 2 -->
+                <div data-aos="fade-up" data-aos-delay="200">
+                    <div class="bg-primary rounded-xl overflow-hidden shadow-lg transition-all hover:border-glow hover-zoom gradient-border">
+                        <div class="relative overflow-hidden h-80">
+                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5cd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=688&q=80" 
+                                 alt="Maître Sophie Martin" 
+                                 class="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
+                                 loading="lazy">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-80"></div>
+                            <div class="absolute bottom-0 left-0 p-6">
+                                <h3 class="text-xl font-bold text-white">Maître Sophie Martin</h3>
+                                <p class="text-accent">Droit Fiscal International</p>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <p class="text-gray-400 mb-4">
+                                Experte en fiscalité internationale et optimisation fiscale, ancienne conseillère fiscale dans un Big Four.
+                            </p>
+                            <div class="flex space-x-4">
+                                <a href="#" class="text-gray-400 hover:text-accent transition">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="#" class="text-gray-400 hover:text-accent transition">
+                                    <i class="fas fa-envelope"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Team Member 3 -->
+                <div data-aos="fade-up" data-aos-delay="300">
+                    <div class="bg-primary rounded-xl overflow-hidden shadow-lg transition-all hover:border-glow hover-zoom gradient-border">
+                        <div class="relative overflow-hidden h-80">
+                            <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" 
+                                 alt="Maître Thomas Leroy" 
+                                 class="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
+                                 loading="lazy">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-80"></div>
+                            <div class="absolute bottom-0 left-0 p-6">
+                                <h3 class="text-xl font-bold text-white">Maître Thomas Leroy</h3>
+                                <p class="text-accent">Droit Immobilier</p>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <p class="text-gray-400 mb-4">
+                                Spécialiste des transactions immobilières complexes et du contentieux en droit de la construction haut de gamme.
+                            </p>
+                            <div class="flex space-x-4">
+                                <a href="#" class="text-gray-400 hover:text-accent transition">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="#" class="text-gray-400 hover:text-accent transition">
+                                    <i class="fas fa-envelope"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Team Member 4 -->
+                <div data-aos="fade-up" data-aos-delay="400">
+                    <div class="bg-primary rounded-xl overflow-hidden shadow-lg transition-all hover:border-glow hover-zoom gradient-border">
+                        <div class="relative overflow-hidden h-80">
+                            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=761&q=80" 
+                                 alt="Maître Claire Dubois" 
+                                 class="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
+                                 loading="lazy">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-80"></div>
+                            <div class="absolute bottom-0 left-0 p-6">
+                                <h3 class="text-xl font-bold text-white">Maître Claire Dubois</h3>
+                                <p class="text-accent">Propriété Intellectuelle</p>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <p class="text-gray-400 mb-4">
+                                Experte en protection des marques et brevets, ancienne conseillère en PI pour une multinationale du luxe.
+                            </p>
+                            <div class="flex space-x-4">
+                                <a href="#" class="text-gray-400 hover:text-accent transition">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="#" class="text-gray-400 hover:text-accent transition">
+                                    <i class="fas fa-envelope"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+        <div class="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 -z-10"></div>
+        
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Témoignages Clients</h2>
+                <div class="w-20 h-1 bg-accent mx-auto mb-6"></div>
+                <p class="text-gray-400 max-w-2xl mx-auto">
+                    Ce que nos clients disent de notre expertise et de notre accompagnement.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card p-8 rounded-lg hover-zoom" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-center mb-4">
+                        <div class="text-accent text-2xl mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 italic mb-6">
+                        "Lex Élégance nous a accompagnés avec un professionnalisme rare dans notre acquisition à l'international. Leur expertise en droit des affaires nous a permis d'éviter des écueils juridiques majeurs."
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full overflow-hidden mr-4 border-2 border-accent">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Pierre Lambert" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Pierre Lambert</h4>
+                            <p class="text-sm text-gray-400">PDG, Groupe Lambert</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card p-8 rounded-lg hover-zoom" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex items-center mb-4">
+                        <div class="text-accent text-2xl mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 italic mb-6">
+                        "Maître Martin a su optimiser notre structure fiscale de manière remarquable, nous permettant des économies substantielles tout en restant parfaitement conforme à la législation internationale."
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full overflow-hidden mr-4 border-2 border-accent">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Élodie Rousseau" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Élodie Rousseau</h4>
+                            <p class="text-sm text-gray-400">Directrice Financière, Rousseau SA</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card p-8 rounded-lg hover-zoom" data-aos="fade-up" data-aos-delay="300">
+                    <div class="flex items-center mb-4">
+                        <div class="text-accent text-2xl mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 italic mb-6">
+                        "En tant qu'artiste, la protection de mes œuvres était cruciale. Maître Dubois a mis en place une stratégie de propriété intellectuelle sur mesure qui couvre parfaitement mes besoins internationaux."
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full overflow-hidden mr-4 border-2 border-accent">
+                            <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Antoine Moreau" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Antoine Moreau</h4>
+                            <p class="text-sm text-gray-400">Artiste Plasticien</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-20 bg-secondary px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+        <div class="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 -z-10"></div>
+        
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Nos Honoraires</h2>
+                <div class="w-20 h-1 bg-accent mx-auto mb-6"></div>
+                <p class="text-gray-400 max-w-2xl mx-auto">
+                    Une tarification transparente et adaptée à vos besoins juridiques complexes.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <!-- Price Card 1 -->
+                <div class="price-card bg-primary p-8 rounded-xl" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="text-xl font-bold mb-4">Consultation</h3>
+                    <div class="text-4xl font-bold text-accent mb-6">350€ <span class="text-sm text-gray-400">/heure</span></div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-accent mr-2"></i>
+                            <span>Analyse approfondie de votre situation</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-accent mr-2"></i>
+                            <span>Conseil juridique personnalisé</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-accent mr-2"></i>
+                            <span>Première heure facturée</span>
+                        </li>
+                    </ul>
+                    <a href="#appointment" class="block text-center border border-accent text-accent font-semibold px-6 py-3 rounded-lg hover:bg-accent hover:text-black transition">
+                        Prendre RDV
+                    </a>
+                </div>
+                
+                <!-- Price Card 2 -->
+                <div class="price-card bg-primary p-8 rounded-xl popular" data-aos="fade-up" data-aos-delay="200">
+                    <div class="absolute top-0 right-0 bg-accent text-black text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-xl">
+                        POPULAIRE
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Forfait Excellence</h3>
+                    <div class="text-4xl font-bold text-accent mb-6">2 500€ <span class="text-sm text-gray-400">/mois</span></div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-accent mr-2"></i>
+                            <span>10 heures de conseil incluses</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-accent mr-2"></i>
+                            <span>Révision de contrats complexes</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-accent mr-2"></i>
+                            <span>Accès prioritaire 24/7</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-accent mr-2"></i>
+                            <span>Support téléphonique immédiat</span>
+                        </li>
+                    </ul>
+                    <a href="#appointment" class="block text-center btn-gold text-black font-semibold px-6 py-3 rounded-lg">
+                        Souscrire
+                    </a>
+                </div>
+                
+                <!-- Price Card 3 -->
+                <div class="price-card bg-primary p-8 rounded-xl" data-aos="fade-up" data-aos-delay="300">
+                    <h3 class="text-xl font-bold mb-4">Accompagnement Élite</h3>
+                    <div class="text-4xl font-bold text-accent mb-6">7 500€ <span class="text-sm text-gray-400">/mois</span></div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-accent mr-2"></i>
+                            <span>30 heures de conseil incluses</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-accent mr-2"></i>
+                            <span>Avocat dédié senior</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-accent mr-2"></i>
+                            <span>Accès direct aux associés</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-accent mr-2"></i>
+                            <span>Analyse stratégique globale</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-accent mr-2"></i>
+                            <span>Support complet multijuridiction</span>
+                        </li>
+                    </ul>
+                    <a href="#appointment" class="block text-center border border-accent text-accent font-semibold px-6 py-3 rounded-lg hover:bg-accent hover:text-black transition">
+                        Nous contacter
+                    </a>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center text-gray-400 max-w-3xl mx-auto" data-aos="fade-up">
+                <p>
+                    * Les honoraires indiqués sont donnés à titre indicatif. Un devis personnalisé vous sera remis après analyse approfondie de votre situation. 
+                    Des modalités de paiement échelonné peuvent être envisagées pour les dossiers complexes.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Appointment Section -->
+    <section id="appointment" class="py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+        <div class="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 -z-10"></div>
+        
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div data-aos="fade-right">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">Prenez Rendez-vous</h2>
+                    <p class="text-gray-400 mb-8">
+                        Notre équipe est à votre disposition pour répondre à vos questions et vous accompagner dans vos démarches juridiques complexes.
+                        Remplissez ce formulaire et nous vous recontacterons dans les plus brefs délais pour confirmer votre rendez-vous.
+                    </p>
+                    
+                    <div class="flex items-start mb-6" data-aos="fade-right" data-aos-delay="100">
+                        <div class="text-accent mr-4 mt-1">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Par téléphone</h4>
+                            <a href="tel:+33123456789" class="text-gray-400 hover:text-accent transition">+33 1 23 45 67 89</a>
+                            <p class="text-sm text-gray-500">Du lundi au vendredi, 9h-19h</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start" data-aos="fade-right" data-aos-delay="200">
+                        <div class="text-accent mr-4 mt-1">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Par email</h4>
+                            <a href="mailto:contact@lexelegance.com" class="text-gray-400 hover:text-accent transition">contact@lexelegance.com</a>
+                            <p class="text-sm text-gray-500">Réponse garantie sous 24h</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div data-aos="fade-left">
+                    <form id="rdvForm" class="appointment-form glass-card p-8 rounded-xl">
+                        <div class="mb-6 relative">
+                            <input type="text" id="name" class="input-field w-full px-4 py-3 rounded-lg focus:outline-none" placeholder=" " required>
+                            <label for="name" class="floating-label">Nom complet</label>
+                        </div>
+                        
+                        <div class="mb-6 relative">
+                            <input type="email" id="email" class="input-field w-full px-4 py-3 rounded-lg focus:outline-none" placeholder=" " required>
+                            <label for="email" class="floating-label">Adresse email</label>
+                        </div>
+                        
+                        <div class="mb-6 relative">
+                            <input type="tel" id="phone" class="input-field w-full px-4 py-3 rounded-lg focus:outline-none" placeholder=" " required>
+                            <label for="phone" class="floating-label">Téléphone</label>
+                        </div>
+                        
+                        <div class="mb-6 relative">
+                            <select id="service" class="input-field w-full px-4 py-3 rounded-lg focus:outline-none appearance-none" required>
+                                <option value="" disabled selected></option>
+                                <option value="droit-affaires">Droit des Affaires</option>
+                                <option value="droit-fiscal">Droit Fiscal International</option>
+                                <option value="droit-international">Droit International</option>
+                                <option value="droit-immobilier">Droit Immobilier Premium</option>
+                                <option value="droit-travail">Droit du Travail Élite</option>
+                                <option value="propriete-intellectuelle">Propriété Intellectuelle</option>
+                                <option value="autre">Autre</option>
+                            </select>
+                            <label for="service" class="floating-label">Motif de la consultation</label>
+                            <div class="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400">
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="grid md:grid-cols-2 gap-6 mb-6">
+                            <div class="relative">
+                                <input type="date" id="date" class="input-field w-full px-4 py-3 rounded-lg focus:outline-none" placeholder=" " required>
+                                <label for="date" class="floating-label">Date souhaitée</label>
+                            </div>
+                            <div class="relative">
+                                <input type="time" id="time" class="input-field w-full px-4 py-3 rounded-lg focus:outline-none" placeholder=" " required>
+                                <label for="time" class="floating-label">Heure souhaitée</label>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-6 relative">
+                            <textarea id="message" rows="3" class="input-field w-full px-4 py-3 rounded-lg focus:outline-none" placeholder=" "></textarea>
+                            <label for="message" class="floating-label">Message complémentaire</label>
+                        </div>
+                        
+                        <div class="flex items-center mb-6">
+                            <input type="checkbox" id="consent" class="mr-2 rounded focus:ring-accent text-accent" required>
+                            <label for="consent" class="text-sm text-gray-400">
+                                J'accepte que mes données soient utilisées pour traiter ma demande conformément à la 
+                                <a href="#" class="text-accent hover:underline">politique de confidentialité</a>.
+                            </label>
+                        </div>
+                        
+                        <button type="submit" class="btn-gold w-full text-black font-semibold px-6 py-3 rounded-lg hover-zoom">
+                            Envoyer la demande <i class="fas fa-paper-plane ml-2"></i>
+                        </button>
+                    </form>
+                    
+                    <div id="formSuccess" class="hidden mt-4 p-4 bg-green-900 bg-opacity-50 text-green-300 rounded-lg" data-aos="fade-up">
+                        <i class="fas fa-check-circle mr-2"></i> Votre demande de rendez-vous a bien été envoyée. Nous vous contacterons dans les plus brefs délais pour confirmation.
+                    </div>
+                    
+                    <div id="formError" class="hidden mt-4 p-4 bg-red-900 bg-opacity-50 text-red-300 rounded-lg" data-aos="fade-up">
+                        <i class="fas fa-exclamation-circle mr-2"></i> Une erreur est survenue lors de l'envoi de votre demande. Veuillez réessayer ou nous contacter par téléphone.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Map Section -->
+    <section id="contact" class="py-20 bg-secondary px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+        <div class="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 -z-10"></div>
+        
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Nous Trouver</h2>
+                <div class="w-20 h-1 bg-accent mx-auto mb-6"></div>
+                <p class="text-gray-400 max-w-2xl mx-auto">
+                    Notre cabinet est situé au cœur de Paris, dans le 8ème arrondissement, facilement accessible en transports en commun.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <div data-aos="fade-right">
+                    <div class="glass-card p-8 rounded-xl">
+                        <h3 class="text-xl font-bold mb-6">Horaires d'Ouverture</h3>
+                        
+                        <div class="space-y-4 mb-8">
+                            <div class="flex justify-between border-b border-gray-800 pb-2">
+                                <span class="text-gray-400">Lundi - Vendredi</span>
+                                <span class="font-medium">9h00 - 19h00</span>
+                            </div>
+                            <div class="flex justify-between border-b border-gray-800 pb-2">
+                                <span class="text-gray-400">Samedi</span>
+                                <span class="font-medium">10h00 - 14h00</span>
+                            </div>
+                            <div class="flex justify-between border-b border-gray-800 pb-2">
+                                <span class="text-gray-400">Dimanche</span>
+                                <span class="text-gray-500">Fermé</span>
+                            </div>
+                        </div>
+                        
+                        <h3 class="text-xl font-bold mb-6">Coordonnées</h3>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <div class="text-accent mr-4 mt-1">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold">Adresse</h4>
+                                    <p class="text-gray-400">12 Avenue des Champs-Élysées<br>75008 Paris, France</p>
+                                    <a href="https://maps.google.com" target="_blank" class="text-accent hover:underline text-sm">Voir sur la carte</a>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="text-accent mr-4 mt-1">
+                                    <i class="fas fa-phone-alt"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold">Téléphone</h4>
+                                    <a href="tel:+33123456789" class="text-gray-400 hover:text-accent transition">+33 1 23 45 67 89</a>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="text-accent mr-4 mt-1">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold">Email</h4>
+                                    <a href="mailto:contact@lexelegance.com" class="text-gray-400 hover:text-accent transition">contact@lexelegance.com</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div data-aos="fade-left">
+                    <div class="map-container hover-zoom">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.373041000551!2d2.301610315674805!3d48.8700791792889!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66fc4f8007851%3A0x5aa7a1e6a5f0b68d!2s12%20Av.%20des%20Champs-%C3%89lys%C3%A9es%2C%2075008%20Paris%2C%20France!5e0!3m2!1sfr!2sus!4v1623256789015!5m2!1sfr!2sus" 
+                                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black py-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+        <div class="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 -z-10"></div>
+        
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <div data-aos="fade-up">
+                    <h3 class="text-xl font-bold mb-6">Lex Élégance</h3>
+                    <p class="text-gray-400 mb-4">
+                        Cabinet d'avocats spécialisé en droit des affaires complexes, fiscalité internationale et droit numérique.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-accent transition" data-aos="zoom-in" data-aos-delay="100">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-accent transition" data-aos="zoom-in" data-aos-delay="150">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-accent transition" data-aos="zoom-in" data-aos-delay="200">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="text-lg font-bold mb-6">Services</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-accent transition">Droit des Affaires</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-accent transition">Droit Fiscal International</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-accent transition">Droit International</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-accent transition">Droit Immobilier Premium</a></li>
+                    </ul>
+                </div>
+                
+                <div data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="text-lg font-bold mb-6">Informations</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-accent transition">Mentions Légales</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-accent transition">Politique de Confidentialité</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-accent transition">CGU</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-accent transition">Plan du Site</a></li>
+                    </ul>
+                </div>
+                
+                <div data-aos="fade-up" data-aos-delay="300">
+                    <h3 class="text-lg font-bold mb-6">Newsletter</h3>
+                    <p class="text-gray-400 mb-4">
+                        Abonnez-vous à notre newsletter pour recevoir nos analyses juridiques exclusives.
+                    </p>
+                    <form class="flex" data-aos="zoom-in">
+                        <input type="email" placeholder="Votre email" class="bg-gray-900 text-white px-4 py-2 rounded-l-lg focus:outline-none w-full">
+                        <button type="submit" class="bg-accent text-black px-4 py-2 rounded-r-lg hover:bg-yellow-300 transition">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="pt-8 border-t border-gray-900 text-center text-gray-500 text-sm" data-aos="fade-up">
+                <p>&copy; <span id="currentYear"></span> Lex Élégance. Tous droits réservés. SIRET : 123 456 789 00010</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="fixed bottom-8 right-8 bg-accent text-black w-12 h-12 rounded-full flex items-center justify-center shadow-lg opacity-0 invisible transition-all duration-300 hover-zoom">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS (Animate On Scroll)
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            mirror: false
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Form Submission
+        const rdvForm = document.getElementById('rdvForm');
+        const formSuccess = document.getElementById('formSuccess');
+        const formError = document.getElementById('formError');
+        
+        rdvForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Simulate form submission
+            formSuccess.classList.add('hidden');
+            formError.classList.add('hidden');
+            
+            // In a real scenario, you would send this data to your backend
+            // For demo purposes, we'll just show success after a delay
+            setTimeout(() => {
+                rdvForm.reset();
+                formSuccess.classList.remove('hidden');
+                
+                // Here you would send the data to your Discord webhook
+                // Example:
+                // sendToDiscord({
+                //     name: document.getElementById('name').value,
+                //     email: document.getElementById('email').value,
+                //     phone: document.getElementById('phone').value,
+                //     service: document.getElementById('service').value,
+                //     date: document.getElementById('date').value,
+                //     time: document.getElementById('time').value,
+                //     message: document.getElementById('message').value
+                // });
+            }, 1000);
+        });
+        
+        // Back to Top Button
+        const backToTopButton = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('opacity-0', 'invisible');
+                backToTopButton.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopButton.classList.remove('opacity-100', 'visible');
+                backToTopButton.classList.add('opacity-0', 'invisible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        
+        // Smooth Scrolling for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+        
+        // Current Year for Footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        
+        // Floating animation for elements
+        const floatingElements = document.querySelectorAll('.floating');
+        floatingElements.forEach(el => {
+            el.style.animationDelay = `${Math.random() * 2}s`;
+        });
+        
+        // Hover zoom effect
+        const hoverZoomElements = document.querySelectorAll('.hover-zoom');
+        hoverZoomElements.forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                el.style.transform = 'scale(1.05)';
+            });
+            el.addEventListener('mouseleave', () => {
+                el.style.transform = 'scale(1)';
+            });
+        });
+        
+        // Glow effect on scroll
+        window.addEventListener('scroll', () => {
+            const scrollPosition = window.scrollY;
+            const glowElements = document.querySelectorAll('.glow');
+            
+            glowElements.forEach(el => {
+                const elementPosition = el.getBoundingClientRect().top + window.scrollY;
+                const distance = Math.abs(scrollPosition - elementPosition);
+                
+                if (distance < window.innerHeight) {
+                    const intensity = 1 - (distance / window.innerHeight);
+                    el.style.filter = `drop-shadow(0 0 ${8 + intensity * 10}px rgba(212, 175, 55, ${0.6 * intensity}))`;
+                }
+            });
+        });
+    </script>
 </body>
 </html>
