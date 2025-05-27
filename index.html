@@ -1123,45 +1123,46 @@ rdvForm.addEventListener('submit', async (e) => {
 });
 
 async function sendToDiscord(data) {
-    const webhookUrl = 'https://discordapp.com/api/webhooks/1376665128157843476/G8j2M4BkVYlntqhvgi7QJLVQKNyAN5KMl3q-Qr7_JTcHVZFYT1T0vgbo5H1-VFYmgU9H';
+    const webhookUrl = 'https://discord.com/api/webhooks/1377017379036467211/akR1VCg2ng-A5_YQH0zIao3dieCHwTGsvh-VmkQ6iaWfmUwF04ls-oT5L4jV_9McrZ2M';
     
     const embed = {
-        title: 'Nouvelle demande de rendez-vous',
-        color: 0x3a86ff, // Blue color
-        fields: [
-            {
-                name: 'Nom complet',
-                value: data.name,
-                inline: true
-            },
-            {
-                name: 'Email',
-                value: data.email,
-                inline: true
-            },
-            {
-                name: 'Téléphone',
-                value: data.phone,
-                inline: true
-            },
-            {
-                name: 'Service demandé',
-                value: data.service,
-                inline: true
-            },
-            {
-                name: 'Date souhaitée',
-                value: `${data.date} à ${data.time}`,
-                inline: true
-            },
-            {
-                name: 'Message complémentaire',
-                value: data.message || 'Aucun message supplémentaire',
-                inline: false
-            }
-        ],
-        timestamp: new Date().toISOString()
-    };
+    title: '📅 Nouvelle demande de rendez-vous',
+    color: 0x3a86ff, // Couleur bleue
+    fields: [
+        {
+            name: '👤 Nom complet',
+            value: data.name,
+            inline: true
+        },
+        {
+            name: '📧 Email',
+            value: data.email,
+            inline: true
+        },
+        {
+            name: '📞 Téléphone',
+            value: data.phone,
+            inline: true
+        },
+        {
+            name: '🛠️ Service demandé',
+            value: data.service,
+            inline: true
+        },
+        {
+            name: '🗓️ Date souhaitée',
+            value: `${data.date} à ${data.time}`,
+            inline: true
+        },
+        {
+            name: '📝 Message complémentaire',
+            value: data.message || 'Aucun message supplémentaire',
+            inline: false
+        }
+    ],
+    timestamp: new Date().toISOString()
+};
+
     
     const payload = {
         embeds: [embed]
