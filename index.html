@@ -1,1183 +1,1285 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-theme="light">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="REGROUPE - Équipe d'esport d'élite. Joueurs professionnels, compétitions et gaming compétitif.">
-<title>REGROUPE - Elite Esport Team</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<title>NoxifyHost — Hébergement Premium</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,600;9..144,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-/* ================= RESET & VARIABLES ================= */
-:root {
-    --primary: #d147a3;
-    --primary-light: #e585c2;
-    --primary-dark: #b32d8b;
-    --secondary: #9d4edd;
-    --secondary-light: #bb86fc;
-    --secondary-dark: #7b2cbf;
-    --background: #0f0b15;
-    --surface: #1a1525;
-    --surface-light: #231d34;
-    --text: #ffffff;
-    --text-secondary: rgba(255, 255, 255, 0.7);
-    --accent: #ff79c6;
-    --warning: #ffb86c;
-    --border: rgba(255, 255, 255, 0.05);
-    --success: #50fa7b;
-    --discord: #5865f2;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-    background: var(--background);
-    color: var(--text);
-    line-height: 1.6;
-    overflow-x: hidden;
-}
-
-/* ================= GLOBAL ================= */
-.container {
-    width: 90%;
-    max-width: 1300px;
-    margin: auto;
-}
-
-section {
-    padding: 100px 0;
-}
-
-h1, h2, h3 {
-    font-weight: 700;
-    line-height: 1.2;
-}
-
-h1 {
-    font-size: clamp(2.5rem, 5vw, 4rem);
-}
-
-h2 {
-    font-size: clamp(2rem, 4vw, 3rem);
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 2rem;
-    position: relative;
-    display: inline-block;
-}
-
-h2::after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 0;
-    width: 60px;
-    height: 4px;
-    background: linear-gradient(90deg, var(--primary), var(--secondary));
-}
-
-.section-subtitle {
-    font-size: 1.2rem;
-    color: var(--text-secondary);
-    margin-bottom: 3rem;
-    max-width: 600px;
-}
-
-.btn {
-    display: inline-block;
-    padding: 16px 40px;
-    background: linear-gradient(90deg, var(--primary), var(--secondary));
-    color: white;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-size: 14px;
-    position: relative;
-    overflow: hidden;
-}
-
-.btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(209, 71, 163, 0.3);
-}
-
-.btn.discord {
-    background: var(--discord);
-}
-
-.btn.discord:hover {
-    background: #4752c4;
-}
-
-.btn-outline {
-    background: transparent;
-    border: 2px solid var(--primary);
-    color: var(--primary);
-}
-
-.btn-outline:hover {
-    background: var(--primary);
-    color: white;
-}
-
-/* ================= HEADER & NAVIGATION ================= */
-header {
-    position: fixed;
-    width: 100%;
-    top: 0;
-    background: rgba(15, 11, 21, 0.95);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    z-index: 1000;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    transition: all 0.3s ease;
-}
-
-.header-inner {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 0;
-}
-
-.logo {
-    font-size: 22px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    color: white;
-    text-transform: uppercase;
-}
-
-nav ul {
-    display: flex;
-    gap: 30px;
-    list-style: none;
-}
-
-nav li a {
-    font-size: 14px;
-    font-weight: 500;
-    letter-spacing: 1px;
-    color: var(--text-secondary);
-    transition: all 0.3s ease;
-    padding: 8px 0;
-    position: relative;
-}
-
-nav li a:hover {
-    color: white;
-}
-
-nav li a::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: linear-gradient(90deg, var(--primary), var(--secondary));
-    transition: width 0.3s ease;
-}
-
-nav li a:hover::after {
-    width: 100%;
-}
-
-.menu-toggle {
-    display: none;
-    font-size: 24px;
-    cursor: pointer;
-    color: white;
-}
-
-/* ================= HERO ================= */
-.hero {
-    min-height: 100vh;
-    background: 
-        radial-gradient(circle at 20% 50%, rgba(209, 71, 163, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(157, 78, 221, 0.1) 0%, transparent 50%),
-        linear-gradient(135deg, #0f0b15 0%, #1a1525 100%);
-    display: flex;
-    align-items: center;
-    position: relative;
-    overflow: hidden;
-    padding-top: 100px;
-}
-
-.hero::before {
-    content: '';
-    position: absolute;
-    width: 600px;
-    height: 600px;
-    background: radial-gradient(circle, rgba(209, 71, 163, 0.15), transparent 70%);
-    top: -300px;
-    right: -300px;
-    border-radius: 50%;
-    z-index: 1;
-}
-
-.hero::after {
-    content: '';
-    position: absolute;
-    width: 400px;
-    height: 400px;
-    background: radial-gradient(circle, rgba(157, 78, 221, 0.1), transparent 70%);
-    bottom: -200px;
-    left: -200px;
-    border-radius: 50%;
-}
-
-.hero-content {
-    max-width: 800px;
-    position: relative;
-    z-index: 2;
-}
-
-.hero h1 {
-    margin-bottom: 25px;
-    background: linear-gradient(90deg, #fff 0%, var(--primary-light) 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-}
-
-.hero p {
-    font-size: 1.2rem;
-    color: var(--text-secondary);
-    margin-bottom: 40px;
-    max-width: 600px;
-}
-
-.hero-buttons {
-    display: flex;
-    gap: 15px;
-    flex-wrap: wrap;
-}
-
-.hero-stats {
-    display: flex;
-    gap: 40px;
-    margin-top: 60px;
-    flex-wrap: wrap;
-}
-
-.stat-item {
-    text-align: center;
-}
-
-.stat-number {
-    font-size: 2.5rem;
-    font-weight: 700;
-    background: linear-gradient(90deg, var(--primary), var(--secondary));
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    margin-bottom: 5px;
-}
-
-.stat-label {
-    font-size: 0.9rem;
-    color: var(--text-secondary);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-/* ================= PLAYERS ================= */
-#players {
-    background: #1a1525;
-    position: relative;
-}
-
-.players-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 30px;
-}
-
-.player-card {
-    background: var(--surface);
-    border-radius: 16px;
-    overflow: hidden;
-    transition: all 0.4s ease;
-    border: 1px solid var(--border);
-    position: relative;
-}
-
-.player-card:hover {
-    transform: translateY(-10px);
-    background: var(--surface-light);
-    border-color: rgba(209, 71, 163, 0.3);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-}
-
-.player-header {
-    padding: 30px 30px 20px;
-    text-align: center;
-    border-bottom: 1px solid var(--border);
-}
-
-.player-avatar {
-    width: 120px;
-    height: 120px;
-    margin: 0 auto 20px;
-    border-radius: 50%;
-    border: 3px solid var(--primary);
-    overflow: hidden;
-    position: relative;
-}
-
-.player-avatar img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-}
-
-.player-card:hover .player-avatar img {
-    transform: scale(1.1);
-}
-
-.player-avatar::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, rgba(209, 71, 163, 0.3), transparent);
-    border-radius: 50%;
-}
-
-.player-card h3 {
-    font-size: 1.5rem;
-    margin-bottom: 8px;
-}
-
-.player-role {
-    font-size: 0.9rem;
-    color: var(--accent);
-    font-weight: 500;
-    margin-bottom: 5px;
-}
-
-.player-status {
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    padding: 4px 12px;
-    border-radius: 20px;
-    display: inline-block;
-}
-
-.status-pro {
-    background: rgba(209, 71, 163, 0.1);
-    color: var(--primary-light);
-    border: 1px solid rgba(209, 71, 163, 0.3);
-}
-
-.status-pending {
-    background: rgba(255, 184, 108, 0.1);
-    color: var(--warning);
-    border: 1px solid rgba(255, 184, 108, 0.3);
-}
-
-.player-body {
-    padding: 20px 30px;
-}
-
-.games-list {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-.game-item {
-    background: rgba(209, 71, 163, 0.05);
-    border-radius: 8px;
-    padding: 12px 15px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: all 0.3s ease;
-    border: 1px solid rgba(209, 71, 163, 0.1);
-}
-
-.game-item:hover {
-    background: rgba(209, 71, 163, 0.1);
-    border-color: rgba(209, 71, 163, 0.3);
-}
-
-.game-name {
-    font-weight: 500;
-}
-
-.pro-badge {
-    background: linear-gradient(90deg, var(--primary), var(--secondary));
-    color: white;
-    padding: 4px 10px;
-    border-radius: 12px;
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-}
-
-/* ================= GAMES ================= */
-#games {
-    background: #0f0b15;
-}
-
-.games-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 30px;
-}
-
-.game-card {
-    background: var(--surface);
-    border-radius: 16px;
-    padding: 40px 30px;
-    text-align: center;
-    transition: all 0.4s ease;
-    border: 1px solid var(--border);
-    position: relative;
-    overflow: hidden;
-}
-
-.game-card:hover {
-    transform: translateY(-10px);
-    border-color: rgba(209, 71, 163, 0.3);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-}
-
-.game-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 5px;
-    background: linear-gradient(90deg, var(--primary), var(--secondary));
-}
-
-.game-icon {
-    font-size: 3.5rem;
-    margin-bottom: 20px;
-    height: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.game-card h3 {
-    font-size: 1.5rem;
-    margin-bottom: 15px;
-}
-
-.game-description {
-    color: var(--text-secondary);
-    font-size: 0.9rem;
-}
-
-/* ================= ABOUT ================= */
-.about-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: center;
-}
-
-.about-text p {
-    margin-bottom: 25px;
-    color: var(--text-secondary);
-    font-size: 1.1rem;
-}
-
-.about-stats {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
-}
-
-.about-stat {
-    text-align: center;
-    padding: 25px;
-    background: var(--surface);
-    border-radius: 12px;
-    border: 1px solid var(--border);
-    transition: all 0.3s ease;
-}
-
-.about-stat:hover {
-    border-color: rgba(209, 71, 163, 0.3);
-    transform: translateY(-5px);
-}
-
-.about-stat i {
-    font-size: 2.5rem;
-    background: linear-gradient(90deg, var(--primary), var(--secondary));
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    margin-bottom: 15px;
-}
-
-/* ================= DISCORD CTA ================= */
-.discord-cta {
-    background: linear-gradient(135deg, #1a1525 0%, #231d34 100%);
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-}
-
-.discord-cta::before {
-    content: '';
-    position: absolute;
-    width: 300px;
-    height: 300px;
-    background: radial-gradient(circle, rgba(209, 71, 163, 0.2), transparent 70%);
-    top: -150px;
-    right: -150px;
-    border-radius: 50%;
-}
-
-.discord-cta::after {
-    content: '';
-    position: absolute;
-    width: 200px;
-    height: 200px;
-    background: radial-gradient(circle, rgba(157, 78, 221, 0.1), transparent 70%);
-    bottom: -100px;
-    left: -100px;
-    border-radius: 50%;
-}
-
-.discord-cta .container {
-    position: relative;
-    z-index: 2;
-}
-
-.discord-cta h2 {
-    margin-bottom: 20px;
-}
-
-.discord-cta p {
-    font-size: 1.2rem;
-    color: var(--text-secondary);
-    margin-bottom: 40px;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* ================= FOOTER ================= */
-footer {
-    background: #0a0810;
-    padding: 60px 0 30px;
-}
-
-.footer-content {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 40px;
-    margin-bottom: 40px;
-}
-
-.footer-column h4 {
-    font-size: 1.2rem;
-    margin-bottom: 25px;
-    position: relative;
-    padding-bottom: 10px;
-}
-
-.footer-column h4::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 40px;
-    height: 3px;
-    background: linear-gradient(90deg, var(--primary), var(--secondary));
-}
-
-.footer-links {
-    list-style: none;
-}
-
-.footer-links li {
-    margin-bottom: 12px;
-}
-
-.footer-links a {
-    color: var(--text-secondary);
-    transition: all 0.3s ease;
-}
-
-.footer-links a:hover {
-    color: white;
-    padding-left: 5px;
-}
-
-.social-links {
-    display: flex;
-    gap: 15px;
-    margin-top: 20px;
-}
-
-.social-links a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    background: var(--surface);
-    border-radius: 50%;
-    color: white;
-    transition: all 0.3s ease;
-}
-
-.social-links a:hover {
-    background: linear-gradient(90deg, var(--primary), var(--secondary));
-    transform: translateY(-5px);
-}
-
-.copyright {
-    text-align: center;
-    padding-top: 30px;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-    color: var(--text-secondary);
-    font-size: 0.9rem;
-}
-
-/* ================= SCROLL ANIMATION ================= */
-.reveal {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
-}
-
-.reveal.active {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* ================= RESPONSIVE ================= */
-@media (max-width: 992px) {
-    .about-content {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-    
-    .footer-content {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 768px) {
-    nav ul {
-        position: fixed;
-        top: 80px;
-        left: 0;
-        width: 100%;
-        background: rgba(15, 11, 21, 0.98);
-        backdrop-filter: blur(10px);
-        flex-direction: column;
-        align-items: center;
-        padding: 30px 0;
-        gap: 20px;
-        transform: translateY(-100%);
-        opacity: 0;
-        visibility: hidden;
-        transition: all 0.4s ease;
-        z-index: 999;
-        border-bottom: 1px solid var(--border);
-    }
-    
-    nav ul.active {
-        transform: translateY(0);
-        opacity: 1;
-        visibility: visible;
-    }
-    
-    .menu-toggle {
-        display: block;
-    }
-    
-    .hero-stats {
-        justify-content: center;
-        gap: 30px;
-    }
-    
-    .hero-buttons {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    
-    .stat-item {
-        flex: 0 0 calc(50% - 15px);
-    }
-    
-    section {
-        padding: 80px 0;
-    }
-}
-
-@media (max-width: 576px) {
-    .players-grid,
-    .games-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .hero-stats {
-        flex-direction: column;
-        gap: 20px;
-    }
-    
-    .stat-item {
-        flex: 0 0 100%;
-    }
-    
-    .footer-content {
-        grid-template-columns: 1fr;
-    }
-    
-    .about-stats {
-        grid-template-columns: 1fr;
-    }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --bg:#f5f1ea;
+  --bg2:#ede8df;
+  --surface:#ffffff;
+  --surface2:#faf8f4;
+  --border:#e2dcd2;
+  --border2:#d4cec3;
+  --text:#18160f;
+  --sub:#8a8275;
+  --soon:#a07840;
+  --soon-bg:#f7edd8;
+  --sh: 0 2px 8px rgba(0,0,0,0.06), 0 8px 32px rgba(0,0,0,0.05);
+  --sh-lg: 0 8px 24px rgba(0,0,0,0.08), 0 24px 64px rgba(0,0,0,0.08);
+  --r:12px;
+  --discord:#5865f2;
+}
+[data-theme="dark"]{
+  --bg:#131210;
+  --bg2:#1a1916;
+  --surface:#1f1e1b;
+  --surface2:#252420;
+  --border:#2d2b26;
+  --border2:#3a3830;
+  --text:#f2ece0;
+  --sub:#6b6558;
+  --soon:#c8953a;
+  --soon-bg:#261e0e;
+  --sh: 0 2px 8px rgba(0,0,0,0.3), 0 8px 32px rgba(0,0,0,0.25);
+  --sh-lg: 0 8px 24px rgba(0,0,0,0.4), 0 24px 64px rgba(0,0,0,0.3);
+}
+
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:'DM Sans',system-ui,sans-serif;
+  font-size:15px;
+  line-height:1.6;
+  min-height:100vh;
+  overflow-x:hidden;
+  transition:background .3s,color .3s;
+}
+
+/* ── CURSOR ── */
+.cursor{
+  position:fixed;width:10px;height:10px;
+  background:var(--text);border-radius:50%;
+  pointer-events:none;z-index:9999;
+  transform:translate(-50%,-50%);
+  transition:transform .1s,width .2s,height .2s,opacity .2s;
+  mix-blend-mode:difference;
+}
+.cursor-ring{
+  position:fixed;width:36px;height:36px;
+  border:1px solid var(--text);border-radius:50%;
+  pointer-events:none;z-index:9998;
+  transform:translate(-50%,-50%);
+  transition:transform .15s ease-out,width .25s,height .25s,opacity .2s;
+  opacity:.4;
+  mix-blend-mode:difference;
+}
+body:hover .cursor{opacity:1}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:500;
+  height:64px;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 48px;
+  background:rgba(245,241,234,0.85);
+  backdrop-filter:blur(24px) saturate(1.2);
+  -webkit-backdrop-filter:blur(24px) saturate(1.2);
+  border-bottom:1px solid var(--border);
+  transition:background .3s,border-color .3s;
+}
+[data-theme="dark"] nav{background:rgba(19,18,16,0.85)}
+
+.nav-logo{
+  font-family:'Fraunces',serif;
+  font-weight:600;font-size:1.15rem;
+  letter-spacing:-.3px;
+  color:var(--text);text-decoration:none;
+  display:flex;align-items:center;gap:9px;
+  flex-shrink:0;
+}
+.logo-mark{
+  width:28px;height:28px;
+  border:1.5px solid var(--text);
+  border-radius:7px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:13px;
+  transition:background .2s,color .2s;
+}
+.nav-logo:hover .logo-mark{background:var(--text);color:var(--bg)}
+
+.nav-center{display:flex;align-items:center;gap:4px;position:relative}
+
+/* NAV ITEM */
+.nav-item{position:relative}
+.nav-link{
+  display:flex;align-items:center;gap:5px;
+  padding:8px 14px;
+  color:var(--sub);
+  font-size:.85rem;font-weight:500;
+  text-decoration:none;
+  border-radius:8px;
+  cursor:pointer;
+  transition:color .15s,background .15s;
+  user-select:none;
+  border:none;background:none;font-family:inherit;
+}
+.nav-link:hover,.nav-link.open{color:var(--text);background:var(--bg2)}
+.nav-link svg{transition:transform .2s}
+.nav-link.open svg{transform:rotate(180deg)}
+
+/* MEGA DROPDOWN */
+.dropdown{
+  position:absolute;top:calc(100% + 12px);left:50%;
+  transform:translateX(-50%) translateY(-6px);
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:6px;
+  min-width:580px;
+  box-shadow:var(--sh-lg);
+  opacity:0;pointer-events:none;
+  transition:opacity .2s,transform .2s;
+  z-index:600;
+}
+.dropdown.open{opacity:1;pointer-events:all;transform:translateX(-50%) translateY(0)}
+
+.dropdown-inner{display:grid;grid-template-columns:1fr 1fr 1fr;gap:4px}
+
+.drop-col-header{
+  grid-column:span 3;
+  display:flex;align-items:center;gap:8px;
+  padding:10px 12px 6px;
+  font-size:.7rem;font-weight:600;
+  letter-spacing:1.5px;text-transform:uppercase;
+  color:var(--sub);
+  border-bottom:1px solid var(--border);
+  margin-bottom:4px;
+}
+
+.drop-item{
+  display:flex;align-items:flex-start;gap:11px;
+  padding:11px 12px;
+  border-radius:10px;
+  text-decoration:none;
+  color:var(--text);
+  transition:background .15s;
+  cursor:pointer;
+}
+.drop-item:hover{background:var(--bg2)}
+
+.drop-icon{
+  width:34px;height:34px;flex-shrink:0;
+  background:var(--bg2);
+  border:1px solid var(--border);
+  border-radius:8px;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--sub);
+  margin-top:1px;
+}
+.drop-item:hover .drop-icon{background:var(--border)}
+
+.drop-text{}
+.drop-name{font-size:.85rem;font-weight:600;margin-bottom:2px}
+.drop-desc{font-size:.75rem;color:var(--sub);line-height:1.4}
+
+.drop-soon{
+  display:inline-flex;align-items:center;
+  background:var(--soon-bg);color:var(--soon);
+  font-size:.6rem;font-weight:700;
+  letter-spacing:1px;text-transform:uppercase;
+  padding:2px 6px;border-radius:4px;
+  margin-left:6px;vertical-align:middle;
+}
+
+/* Simple dropdown */
+.dropdown.simple{min-width:200px;grid-template-columns:1fr}
+.dropdown.simple .dropdown-inner{grid-template-columns:1fr}
+
+.nav-right{display:flex;align-items:center;gap:10px}
+
+.toggle{
+  width:34px;height:34px;
+  border-radius:8px;border:1px solid var(--border);
+  background:transparent;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--sub);font-size:14px;
+  transition:all .15s;flex-shrink:0;
+}
+.toggle:hover{color:var(--text);border-color:var(--text)}
+
+.nav-cta{
+  display:flex;align-items:center;gap:7px;
+  padding:9px 18px;
+  background:var(--text);color:var(--bg);
+  font-size:.82rem;font-weight:600;
+  border-radius:9px;text-decoration:none;
+  transition:opacity .15s,transform .15s;
+  white-space:nowrap;
+}
+.nav-cta:hover{opacity:.8;transform:translateY(-1px)}
+
+/* ── HERO ── */
+.hero{
+  min-height:100vh;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;
+  padding:120px 24px 80px;
+  position:relative;
+  overflow:hidden;
+}
+
+/* Grain texture */
+.hero::before{
+  content:'';
+  position:absolute;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  opacity:.5;pointer-events:none;
+}
+
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:50px;padding:7px 16px;
+  font-size:.78rem;font-weight:500;color:var(--sub);
+  margin-bottom:32px;
+  animation:fadeUp .6s ease both;
+}
+.hero-eyebrow-dot{
+  width:6px;height:6px;
+  background:#22c55e;border-radius:50%;
+  box-shadow:0 0 0 3px rgba(34,197,94,.15);
+  animation:breathe 2.5s ease infinite;
+}
+@keyframes breathe{0%,100%{box-shadow:0 0 0 3px rgba(34,197,94,.15)}50%{box-shadow:0 0 0 6px rgba(34,197,94,.08)}}
+
+.hero h1{
+  font-family:'Fraunces',serif;
+  font-size:clamp(3rem,8vw,6.5rem);
+  font-weight:300;
+  letter-spacing:-3px;
+  line-height:1.0;
+  margin-bottom:24px;
+  max-width:900px;
+  animation:fadeUp .6s .1s ease both;
+}
+.hero h1 em{font-style:italic;font-weight:400}
+.hero h1 strong{font-weight:700}
+
+.hero-sub{
+  color:var(--sub);
+  font-size:1.05rem;font-weight:400;
+  max-width:460px;line-height:1.65;
+  margin-bottom:44px;
+  animation:fadeUp .6s .2s ease both;
+}
+
+.hero-actions{
+  display:flex;align-items:center;gap:12px;flex-wrap:wrap;justify-content:center;
+  animation:fadeUp .6s .3s ease both;
+}
+
+.btn-hero-primary{
+  display:flex;align-items:center;gap:8px;
+  padding:14px 28px;
+  background:var(--text);color:var(--bg);
+  font-size:.9rem;font-weight:600;
+  border-radius:11px;text-decoration:none;
+  transition:opacity .15s,transform .2s;
+  border:none;cursor:pointer;font-family:inherit;
+}
+.btn-hero-primary:hover{opacity:.82;transform:translateY(-2px)}
+
+.btn-hero-secondary{
+  display:flex;align-items:center;gap:8px;
+  padding:14px 24px;
+  background:transparent;
+  border:1px solid var(--border2);
+  color:var(--text);
+  font-size:.9rem;font-weight:500;
+  border-radius:11px;text-decoration:none;
+  transition:border-color .15s,transform .2s,background .15s;
+  cursor:pointer;font-family:inherit;
+}
+.btn-hero-secondary:hover{border-color:var(--text);transform:translateY(-2px);background:var(--surface)}
+
+/* Stats bar */
+.hero-stats{
+  display:flex;align-items:center;gap:40px;
+  margin-top:72px;
+  padding-top:40px;
+  border-top:1px solid var(--border);
+  animation:fadeUp .6s .45s ease both;
+  width:100%;max-width:600px;justify-content:center;
+}
+.stat-item{text-align:center}
+.stat-value{
+  font-family:'Fraunces',serif;
+  font-size:2rem;font-weight:600;
+  letter-spacing:-1px;line-height:1;
+  margin-bottom:4px;
+}
+.stat-label{font-size:.75rem;color:var(--sub);letter-spacing:.3px}
+
+.stat-sep{width:1px;height:40px;background:var(--border);flex-shrink:0}
+
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(20px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+/* ── SCROLL INDICATOR ── */
+.scroll-hint{
+  position:absolute;bottom:36px;left:50%;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:8px;
+  animation:fadeUp .6s .6s ease both;
+  color:var(--sub);font-size:.72rem;letter-spacing:1px;text-transform:uppercase;
+}
+.scroll-line{
+  width:1px;height:40px;
+  background:linear-gradient(to bottom,var(--border),transparent);
+  animation:scrollPulse 2s ease infinite;
+}
+@keyframes scrollPulse{
+  0%{transform:scaleY(0);transform-origin:top}
+  50%{transform:scaleY(1);transform-origin:top}
+  51%{transform:scaleY(1);transform-origin:bottom}
+  100%{transform:scaleY(0);transform-origin:bottom}
+}
+
+/* ── MARQUEE ── */
+.marquee-section{
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+  padding:18px 0;
+  background:var(--bg2);
+  overflow:hidden;
+  white-space:nowrap;
+  transition:background .3s;
+}
+.marquee-inner{
+  display:inline-flex;align-items:center;gap:0;
+  animation:marquee 20s linear infinite;
+}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.marquee-item{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:0 32px;
+  font-size:.8rem;font-weight:500;color:var(--sub);
+  letter-spacing:.5px;
+}
+.marquee-item::after{
+  content:'·';color:var(--border2);font-size:1.2rem;margin-left:32px;
+}
+
+/* ── FEATURES SECTION ── */
+.features-section{
+  max-width:1100px;margin:0 auto;
+  padding:100px 32px;
+}
+.section-tag{
+  display:inline-flex;align-items:center;gap:7px;
+  font-size:.72rem;font-weight:600;letter-spacing:1.8px;
+  text-transform:uppercase;color:var(--sub);
+  margin-bottom:16px;
+}
+.section-tag::before{
+  content:'';width:20px;height:1px;background:var(--sub);
+}
+.feat-heading{
+  font-family:'Fraunces',serif;
+  font-size:clamp(2rem,4vw,3rem);
+  font-weight:400;letter-spacing:-1.5px;
+  line-height:1.15;max-width:560px;
+  margin-bottom:60px;
+}
+.feat-heading em{font-style:italic}
+
+.features-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1px;
+  background:var(--border);
+  border:1px solid var(--border);
+  border-radius:16px;overflow:hidden;
+}
+.feat-card{
+  background:var(--surface);
+  padding:32px 28px;
+  transition:background .2s;
+}
+.feat-card:hover{background:var(--surface2)}
+.feat-icon{
+  margin-bottom:16px;color:var(--sub);
+}
+.feat-title{
+  font-weight:600;font-size:.92rem;
+  margin-bottom:8px;letter-spacing:-.2px;
+}
+.feat-desc{
+  font-size:.82rem;color:var(--sub);line-height:1.55;
+}
+
+/* ── PRICING SECTION ── */
+.pricing-section{
+  max-width:1100px;margin:0 auto;
+  padding:0 32px 100px;
+}
+.pricing-tabs{
+  display:flex;align-items:center;gap:4px;
+  background:var(--bg2);
+  border:1px solid var(--border);
+  border-radius:12px;padding:5px;
+  width:fit-content;margin-bottom:48px;
+}
+.tab{
+  padding:9px 20px;
+  border-radius:9px;
+  font-size:.83rem;font-weight:500;
+  cursor:pointer;transition:background .15s,color .15s,box-shadow .15s;
+  color:var(--sub);
+  border:none;background:none;font-family:inherit;
+}
+.tab.active{
+  background:var(--surface);color:var(--text);
+  box-shadow:0 1px 4px rgba(0,0,0,.08);
+}
+.tab-panel{display:none}
+.tab-panel.active{display:block}
+
+.pricing-header{
+  display:flex;align-items:flex-end;justify-content:space-between;
+  margin-bottom:24px;
+  padding-bottom:20px;
+  border-bottom:1px solid var(--border);
+}
+.pricing-header h2{
+  font-family:'Fraunces',serif;
+  font-size:clamp(1.5rem,3vw,2.2rem);
+  font-weight:400;letter-spacing:-1px;
+}
+.pricing-header p{font-size:.83rem;color:var(--sub);max-width:300px;text-align:right;line-height:1.5}
+
+.cards-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+  gap:12px;
+}
+
+.price-card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:26px;
+  display:flex;flex-direction:column;gap:20px;
+  transition:border-color .2s,box-shadow .2s,transform .2s;
+  position:relative;cursor:default;
+}
+.price-card:hover{
+  border-color:var(--text);
+  box-shadow:var(--sh-lg);
+  transform:translateY(-3px);
+}
+.price-card.featured{
+  border-color:var(--text);
+  background:var(--surface2);
+}
+.price-card.featured:hover{transform:translateY(-5px)}
+
+.card-badge{
+  position:absolute;top:-1px;right:20px;
+  background:var(--text);color:var(--bg);
+  font-size:.62rem;font-weight:700;
+  letter-spacing:1px;text-transform:uppercase;
+  padding:3px 10px;
+  border-radius:0 0 7px 7px;
+  transition:background .3s,color .3s;
+}
+
+.card-top{}
+.card-name{
+  font-weight:600;font-size:.92rem;
+  letter-spacing:-.2px;margin-bottom:6px;
+}
+.card-desc{color:var(--sub);font-size:.8rem;line-height:1.5}
+
+.card-price-block{
+  display:flex;align-items:baseline;gap:4px;
+  font-family:'Fraunces',serif;
+}
+.price-num{
+  font-size:2.2rem;font-weight:600;
+  letter-spacing:-1.5px;line-height:1;
+}
+.price-per{font-size:.78rem;color:var(--sub);font-family:'DM Sans',sans-serif}
+
+.soon-pill{
+  display:inline-flex;align-items:center;gap:6px;
+  background:var(--soon-bg);color:var(--soon);
+  font-size:.72rem;font-weight:700;
+  letter-spacing:1px;text-transform:uppercase;
+  padding:6px 12px;border-radius:7px;width:fit-content;
+  transition:background .3s,color .3s;
+}
+.soon-dot{width:5px;height:5px;border-radius:50%;background:var(--soon)}
+
+.card-hr{width:100%;height:1px;background:var(--border);transition:background .3s}
+
+.card-features{display:flex;flex-direction:column;gap:7px}
+.card-feat{
+  display:flex;align-items:center;gap:9px;
+  font-size:.8rem;color:var(--sub);
+}
+.feat-bullet{
+  width:4px;height:4px;
+  border-radius:50%;background:var(--border2);
+  flex-shrink:0;transition:background .3s;
+}
+
+.card-btn{
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  padding:11px 16px;
+  border-radius:9px;
+  font-size:.8rem;font-weight:500;
+  cursor:pointer;text-decoration:none;
+  transition:opacity .15s,transform .15s;
+  border:1px solid var(--border);
+  background:transparent;color:var(--text);
+  margin-top:auto;font-family:inherit;
+}
+.card-btn:hover{opacity:.7;transform:translateY(-1px)}
+.card-btn.primary{
+  background:var(--text);color:var(--bg);
+  border-color:var(--text);
+}
+.card-btn.disabled{opacity:.3;cursor:not-allowed;pointer-events:none}
+
+/* ── DISCORD CTA ── */
+.discord-cta{
+  background:var(--bg2);
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+  padding:80px 32px;
+  text-align:center;
+  transition:background .3s;
+}
+.discord-inner{max-width:560px;margin:0 auto}
+.discord-icon{
+  width:56px;height:56px;
+  background:rgba(88,101,242,.12);
+  border:1px solid rgba(88,101,242,.25);
+  border-radius:16px;
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 24px;
+}
+.discord-cta h2{
+  font-family:'Fraunces',serif;
+  font-size:clamp(1.6rem,3.5vw,2.4rem);
+  font-weight:400;letter-spacing:-1px;
+  margin-bottom:12px;
+}
+.discord-cta p{color:var(--sub);font-size:.9rem;margin-bottom:28px;line-height:1.6}
+.btn-discord{
+  display:inline-flex;align-items:center;gap:9px;
+  padding:14px 28px;
+  background:#5865f2;color:#fff;
+  font-size:.88rem;font-weight:600;
+  border-radius:11px;text-decoration:none;
+  transition:opacity .15s,transform .2s;
+}
+.btn-discord:hover{opacity:.88;transform:translateY(-2px)}
+
+/* ── FAQ ── */
+.faq-section{
+  max-width:720px;margin:0 auto;
+  padding:100px 32px;
+}
+.faq-section .section-tag{margin-bottom:16px}
+.faq-section h2{
+  font-family:'Fraunces',serif;
+  font-size:clamp(1.8rem,3.5vw,2.6rem);
+  font-weight:400;letter-spacing:-1.2px;
+  margin-bottom:48px;
+}
+.faq-item{
+  border-bottom:1px solid var(--border);
+  padding:20px 0;
+}
+.faq-q{
+  display:flex;align-items:center;justify-content:space-between;
+  cursor:pointer;gap:16px;
+  font-weight:500;font-size:.9rem;
+  user-select:none;
+}
+.faq-q:hover{color:var(--sub)}
+.faq-arrow{
+  width:28px;height:28px;flex-shrink:0;
+  border:1px solid var(--border);border-radius:7px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:12px;
+  transition:transform .25s,background .15s;
+  color:var(--sub);
+}
+.faq-item.open .faq-arrow{transform:rotate(45deg);background:var(--bg2)}
+.faq-a{
+  font-size:.83rem;color:var(--sub);line-height:1.65;
+  max-height:0;overflow:hidden;
+  transition:max-height .3s ease,padding .3s;
+  padding-top:0;
+}
+.faq-item.open .faq-a{max-height:200px;padding-top:14px}
+
+/* ── FOOTER ── */
+footer{
+  border-top:1px solid var(--border);
+  padding:48px;
+  display:grid;
+  grid-template-columns:1.5fr 1fr 1fr 1fr;
+  gap:40px;
+  transition:border-color .3s;
+}
+.footer-brand{}
+.footer-brand .nav-logo{margin-bottom:12px;font-size:1rem}
+.footer-brand p{font-size:.8rem;color:var(--sub);line-height:1.6;max-width:220px}
+.footer-col h4{
+  font-size:.72rem;font-weight:600;
+  letter-spacing:1.5px;text-transform:uppercase;
+  color:var(--sub);margin-bottom:14px;
+}
+.footer-col a{
+  display:block;
+  font-size:.82rem;color:var(--sub);
+  text-decoration:none;margin-bottom:8px;
+  transition:color .15s;
+}
+.footer-col a:hover{color:var(--text)}
+.footer-bottom{
+  border-top:1px solid var(--border);
+  padding:20px 48px;
+  display:flex;align-items:center;justify-content:space-between;
+  transition:border-color .3s;
+}
+.footer-bottom p{font-size:.76rem;color:var(--sub)}
+
+/* ── SCROLL REVEAL ── */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+.reveal.visible{opacity:1;transform:none}
+
+/* ── RESPONSIVE ── */
+@media(max-width:768px){
+  nav{padding:0 20px}
+  .nav-center{display:none}
+  footer{grid-template-columns:1fr 1fr;padding:32px 20px}
+  .footer-bottom{padding:16px 20px;flex-direction:column;gap:8px;text-align:center}
+  .features-grid{grid-template-columns:1fr}
+  .hero-stats{gap:24px}
 }
 </style>
 </head>
-
 <body>
 
-<header>
-    <div class="container header-inner">
-        <div class="logo">REGROUPE</div>
-        <div class="menu-toggle" id="menuToggle">
-            <i class="fas fa-bars"></i>
-        </div>
-        <nav>
-            <ul id="navMenu">
-                <li><a href="#hero">Accueil</a></li>
-                <li><a href="#players">Joueurs</a></li>
-                <li><a href="#games">Jeux</a></li>
-                <li><a href="#about">À propos</a></li>
-                <li><a href="#discord">Rejoindre</a></li>
-            </ul>
-        </nav>
-    </div>
-</header>
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
 
-<section class="hero" id="hero">
-    <div class="container">
-        <div class="hero-content reveal">
-            <h1>Gaming. Performance. Excellence.</h1>
-            <p>
-                Équipe de joueurs professionnels présente sur les plus grandes compétitions.
-                Notre objectif : dominer, performer et marquer l'histoire du gaming compétitif.
-            </p>
-            <div class="hero-buttons">
-                <a href="#players" class="btn">Découvrir l'équipe</a>
-                <a href="#discord" class="btn btn-outline">Rejoindre Discord</a>
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">
+    <div class=""></div>
+    NoxifyHost
+  </a>
+
+  <div class="nav-center">
+    <!-- Tarifs dropdown -->
+    <div class="nav-item">
+      <button class="nav-link" onclick="toggleDrop('drop-tarifs',this)">
+        Tarifs
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="dropdown" id="drop-tarifs">
+        <div class="dropdown-inner">
+          <div class="drop-col-header">
+            <svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1a7 7 0 100 14A7 7 0 008 1zm0 1.5a5.5 5.5 0 110 11 5.5 5.5 0 010-11zm0 2a1 1 0 100 2 1 1 0 000-2zm-.75 3.25h1.5v4h-1.5v-4z"/></svg>
+            Nos offres d'hébergement
+          </div>
+          <a class="drop-item" href="#pricing" onclick="goToTab('bots')">
+            <div class="drop-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M12 2v4M8 11V9a4 4 0 018 0v2"/><circle cx="9" cy="16" r="1" fill="currentColor" stroke="none"/><circle cx="15" cy="16" r="1" fill="currentColor" stroke="none"/></svg></div>
+            <div class="drop-text">
+              <div class="drop-name">Bots Discord — Python</div>
+              <div class="drop-desc">discord.py · Starter & Pro</div>
             </div>
-            <div class="hero-stats">
-                <div class="stat-item reveal">
-                    <div class="stat-number">5</div>
-                    <div class="stat-label">Joueurs Pro</div>
-                </div>
-                <div class="stat-item reveal">
-                    <div class="stat-number">3</div>
-                    <div class="stat-label">Jeux Compétitifs</div>
-                </div>
-                <div class="stat-item reveal">
-                    <div class="stat-number">15+</div>
-                    <div class="stat-label">Tournois</div>
-                </div>
-                <div class="stat-item reveal">
-                    <div class="stat-number">24/7</div>
-                    <div class="stat-label">Entraînement</div>
-                </div>
+          </a>
+          <a class="drop-item" href="#pricing" onclick="goToTab('bots')">
+            <div class="drop-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+            <div class="drop-text">
+              <div class="drop-name">Bots Discord — JS</div>
+              <div class="drop-desc">discord.js · Starter & Pro</div>
             </div>
+          </a>
+          <a class="drop-item" href="#pricing" onclick="goToTab('minecraft')">
+            <div class="drop-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+            <div class="drop-text">
+              <div class="drop-name">Serveurs Minecraft</div>
+              <div class="drop-desc">Vanilla, PaperMC, Forge…</div>
+            </div>
+          </a>
+          <a class="drop-item" href="#pricing" onclick="goToTab('fivem')">
+            <div class="drop-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div>
+            <div class="drop-text">
+              <div class="drop-name">Serveurs FiveM <span class="drop-soon">Soon</span></div>
+              <div class="drop-desc">ESX / QBCore ready</div>
+            </div>
+          </a>
+          <a class="drop-item" style="opacity:.4;pointer-events:none">
+            <div class="drop-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+            <div class="drop-text">
+              <div class="drop-name">Sites Web <span class="drop-soon">Soon</span></div>
+              <div class="drop-desc">PHP, Node, Static…</div>
+            </div>
+          </a>
+          <a class="drop-item" style="opacity:.4;pointer-events:none">
+            <div class="drop-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></div>
+            <div class="drop-text">
+              <div class="drop-name">Bases de données <span class="drop-soon">Soon</span></div>
+              <div class="drop-desc">MySQL, Redis, MongoDB</div>
+            </div>
+          </a>
         </div>
+      </div>
     </div>
+
+    <!-- Support dropdown -->
+    <div class="nav-item">
+      <button class="nav-link" onclick="toggleDrop('drop-support',this)">
+        Support
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="dropdown simple" id="drop-support">
+        <div class="dropdown-inner" style="grid-template-columns:1fr">
+          <a class="drop-item" href="https://discord.gg/Kvy6xKcG" target="_blank">
+            <div class="drop-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div>
+            <div class="drop-text">
+              <div class="drop-name">Discord</div>
+              <div class="drop-desc">Support en temps réel</div>
+            </div>
+          </a>
+          <a class="drop-item" href="https://discord.gg/Kvy6xKcG" target="_blank" onclick="closeDrop()">
+            <div class="drop-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="drop-text">
+              <div class="drop-name">Documentation</div>
+              <div class="drop-desc">Guides & tutoriels</div>
+            </div>
+          </a>
+          <a class="drop-item" href="#faq" onclick="closeDrop()">
+            <div class="drop-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
+            <div class="drop-text">
+              <div class="drop-name">FAQ</div>
+              <div class="drop-desc">Questions fréquentes</div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <a class="nav-link" href="#">À propos</a>
+    
+  </div>
+
+  <div class="nav-right">
+    <button class="toggle" onclick="toggleTheme()" title="Thème">
+      <span id="theme-icon">☾</span>
+    </button>
+    <a href="https://discord.gg/Kvy6xKcG" target="_blank" class="nav-cta">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057c.004.027.019.053.04.07a19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg>
+      Commander
+    </a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-eyebrow">
+    <div class="hero-eyebrow-dot"></div>
+    Infrastructure stable · 99.9% uptime
+  </div>
+  <h1>L'hébergement qui<br><em>ne vous lâche pas.</em></h1>
+  <p class="hero-sub">Bots Discord, serveurs Minecraft ou FiveM — performants, fiables, et commandés en 2 minutes sur Discord.</p>
+  <div class="hero-actions">
+    <a href="#pricing" class="btn-hero-primary">
+      Voir les offres
+      <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+    <a href="https://discord.gg/Kvy6xKcG" target="_blank" class="btn-hero-secondary">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="#5865f2"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057c.004.027.019.053.04.07a19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg>
+      Rejoindre Discord
+    </a>
+  </div>
+  <div class="hero-stats">
+    <div class="stat-item">
+      <div class="stat-value">99.9%</div>
+      <div class="stat-label">Uptime garanti</div>
+    </div>
+    <div class="stat-sep"></div>
+    <div class="stat-item">
+      <div class="stat-value">&lt; 5 min</div>
+      <div class="stat-label">Délai de mise en ligne</div>
+    </div>
+    <div class="stat-sep"></div>
+    <div class="stat-item">
+      <div class="stat-value">24/7</div>
+      <div class="stat-label">Support Discord</div>
+    </div>
+  </div>
+  <div class="scroll-hint">
+    <div class="scroll-line"></div>
+    Scroll
+  </div>
 </section>
 
-<section id="players">
-    <div class="container">
-        <h2 class="reveal">Nos Joueurs</h2>
-        <p class="section-subtitle reveal">Découvrez nos joueurs professionnels, spécialistes dans leurs disciplines respectives.</p>
-        
-        <div class="players-grid">
-            <div class="player-card reveal">
-                <div class="player-header">
-                    <div class="player-avatar">
-                        <img src="https://cdn.discordapp.com/avatars/1020293206275006467/a2a3ce6e78648e7be5e22c130faf07b6.png?size=1024" alt="Arena">
-                    </div>
-                    <h3>Arena</h3>
-                    <div class="player-role">Multi-gaming</div>
-                    <div class="player-status status-pro">Professionnel</div>
-                </div>
-                <div class="player-body">
-                    <div class="games-list">
-                        <div class="game-item">
-                            <span class="game-name">Rocket League</span>
-                            <span class="pro-badge">PRO</span>
-                        </div>
-                        <div class="game-item">
-                            <span class="game-name">Warzon</span>
-                            <span class="pro-badge">PRO</span>
-                        </div>
-                        <div class="game-item">
-                            <span class="game-name">Fortnite</span>
-                            <span class="pro-badge">PRO</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<!-- MARQUEE -->
+<div class="marquee-section">
+  <div class="marquee-inner">
+    <span class="marquee-item">discord.py</span>
+    <span class="marquee-item">discord.js</span>
+    <span class="marquee-item">PaperMC</span>
+    <span class="marquee-item">Spigot</span>
+    <span class="marquee-item">Forge</span>
+    <span class="marquee-item">BungeeCord</span>
+    <span class="marquee-item">FiveM</span>
+    <span class="marquee-item">ESX</span>
+    <span class="marquee-item">QBCore</span>
+    <span class="marquee-item">txAdmin</span>
+    <span class="marquee-item">Pterodactyl</span>
+    <span class="marquee-item">Anti-DDoS</span>
+    <span class="marquee-item">99.9% Uptime</span>
+    <span class="marquee-item">Support Discord</span>
+    <span class="marquee-item">discord.py</span>
+    <span class="marquee-item">discord.js</span>
+    <span class="marquee-item">PaperMC</span>
+    <span class="marquee-item">Spigot</span>
+    <span class="marquee-item">Forge</span>
+    <span class="marquee-item">BungeeCord</span>
+    <span class="marquee-item">FiveM</span>
+    <span class="marquee-item">ESX</span>
+    <span class="marquee-item">QBCore</span>
+    <span class="marquee-item">txAdmin</span>
+    <span class="marquee-item">Pterodactyl</span>
+    <span class="marquee-item">Anti-DDoS</span>
+    <span class="marquee-item">99.9% Uptime</span>
+    <span class="marquee-item">Support Discord</span>
+  </div>
+</div>
 
-            <div class="player-card reveal">
-                <div class="player-header">
-                    <div class="player-avatar">
-                        <img src="https://cdn.discordapp.com/avatars/955131632581500938/8b0ec47c6717c95256fdf69a885ccce3.png?size=1024" alt="Miguel">
-                    </div>
-                    <h3>Miguel</h3>
-                    <div class="player-role">Multi-gaming</div>
-                    <div class="player-status status-pro">Professionnel</div>
-                </div>
-                <div class="player-body">
-                    <div class="games-list">
-                        <div class="game-item">
-                            <span class="game-name">Valorant</span>
-                            <span class="pro-badge">PRO</span>
-                        </div>
-                        <div class="game-item">
-                            <span class="game-name">CP FiveM</span>
-                            <span class="pro-badge">PRO</span>
-                        </div>
-                        <div class="game-item">
-                            <span class="game-name">Rocket League</span>
-                            <span class="pro-badge">PRO</span>
-                        </div>
-                        <div class="game-item">
-                            <span class="game-name">Warzon</span>
-                            <span class="pro-badge">PRO</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="player-card reveal">
-                <div class="player-header">
-                    <div class="player-avatar">
-                        <img src="https://cdn.discordapp.com/avatars/639645226377412666/a_aa2892becb77d1b253a7e54a13a0e8cf.gif?size=1024" alt="Billal">
-                    </div>
-                    <h3>Billal</h3>
-                    <div class="player-role">Multi-gaming</div>
-                    <div class="player-status status-pro">Professionnel</div>
-                </div>
-                <div class="player-body">
-                    <div class="games-list">
-                        <div class="game-item">
-                            <span class="game-name">Valorant</span>
-                            <span class="pro-badge">PRO</span>
-                        </div>
-                        <div class="game-item">
-                            <span class="game-name">CP FiveM</span>
-                            <span class="pro-badge">PRO</span>
-                        </div>
-                        <div class="game-item">
-                            <span class="game-name">Warzon</span>
-                            <span class="pro-badge">PRO</span>
-                        </div>
-                        <div class="game-item">
-                            <span class="game-name">Fortnite</span>
-                            <span class="pro-badge">PRO</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="player-card reveal">
-                <div class="player-header">
-                    <div class="player-avatar">
-                        <div style="width: 100%; height: 100%; background: linear-gradient(135deg, var(--primary), var(--secondary)); display: flex; align-items: center; justify-content: center; font-size: 2.5rem; font-weight: bold;">M</div>
-                    </div>
-                    <h3>Momo</h3>
-                    <div class="player-role">Spécialiste Valorant</div>
-                    <div class="player-status status-pro">Professionnel</div>
-                </div>
-                <div class="player-body">
-                    <div class="games-list">
-                        <div class="game-item">
-                            <span class="game-name">Valorant</span>
-                            <span class="pro-badge">PRO</span>
-                        </div>
-                        <div class="game-item">
-                            <span class="game-name">Brawlhalla</span>
-                            <span class="pro-badge">PRO</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="player-card reveal">
-                <div class="player-header">
-                    <div class="player-avatar">
-                        <img src="https://cdn.discordapp.com/avatars/1443700860583411817/c256b0f046fea6a8053f9e53bbf5bc9a.png?size=1024" alt="Younes">
-                    </div>
-                    <h3>Younes</h3>
-                    <div class="player-role">Nouveau talent</div>
-                    <div class="player-status status-pending">En recrutement</div>
-                </div>
-                <div class="player-body">
-                    <div class="games-list">
-                        <div class="game-item">
-                            <span class="game-name">Bientôt annoncé...</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+<!-- FEATURES -->
+<section class="features-section reveal">
+  <div class="section-tag">Pourquoi nous choisir</div>
+  <h2 class="feat-heading">Simple à commander,<br><em>puissant à l'usage.</em></h2>
+  <div class="features-grid">
+    <div class="feat-card">
+      <div class="feat-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+      <div class="feat-title">Déploiement immédiat</div>
+      <div class="feat-desc">Votre service est actif en moins de 5 minutes après la commande sur Discord.</div>
     </div>
+    <div class="feat-card">
+      <div class="feat-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+      <div class="feat-title">Anti-DDoS inclus</div>
+      <div class="feat-desc">Protection réseau sur toutes les offres, sans surcoût caché.</div>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div>
+      <div class="feat-title">Support via Discord</div>
+      <div class="feat-desc">Une équipe réactive directement sur notre serveur. Pas de ticket interminable.</div>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 11-2.12-9.36L23 10"/></svg></div>
+      <div class="feat-title">Redémarrage auto</div>
+      <div class="feat-desc">Si votre service crash, il repart automatiquement. Zéro intervention nécessaire.</div>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg></div>
+      <div class="feat-title">Sauvegardes quotidiennes</div>
+      <div class="feat-desc">Vos données sont sauvegardées chaque jour. Restauration en un clic.</div>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+      <div class="feat-title">Panel de contrôle</div>
+      <div class="feat-desc">Accès à Pterodactyl ou txAdmin selon votre offre pour tout piloter facilement.</div>
+    </div>
+  </div>
 </section>
 
-<section id="games">
-    <div class="container">
-        <h2 class="reveal">Nos Jeux</h2>
-        <p class="section-subtitle reveal">Nous excellons dans ces jeux compétitifs à travers nos différentes divisions.</p>
-        
-        <div class="games-grid">
-            <div class="game-card reveal">
-                <div class="game-icon">
-                    <i class="fas fa-car" style="color: var(--primary-light);"></i>
-                </div>
-                <h3>Rocket League</h3>
-                <p class="game-description">Football futuriste avec des voitures propulsées par fusée. Compétitions à haut niveau avec stratégie et précision.</p>
-            </div>
-            
-            <div class="game-card reveal">
-                <div class="game-icon">
-                    <i class="fas fa-crosshairs" style="color: #ff79c6;"></i>
-                </div>
-                <h3>Valorant</h3>
-                <p class="game-description">FPS tactique développé par Riot Games. Combinaison d'habileté individuelle et de stratégie d'équipe.</p>
-            </div>
-            
-            <div class="game-card reveal">
-                <div class="game-icon">
-                    <i class="fas fa-city" style="color: var(--secondary-light);"></i>
-                </div>
-                <h3>CP FiveM</h3>
-                <p class="game-description">Jeu de rôle sur serveur FiveM. Stratégie, coordination et immersion dans un environnement compétitif.</p>
-            </div>
-        </div>
+<!-- PRICING -->
+<section id="pricing" class="pricing-section reveal">
+  <div class="section-tag">Tarifs</div>
+
+  <div class="pricing-tabs">
+    <button class="tab active" onclick="switchTab('bots',this)">Bots Discord</button>
+    <button class="tab" onclick="switchTab('minecraft',this)">Minecraft</button>
+    <button class="tab" onclick="switchTab('fivem',this)">FiveM</button>
+  </div>
+
+  <!-- BOTS -->
+  <div class="tab-panel active" id="tab-bots">
+    <div class="pricing-header">
+      <h2>Bots Discord</h2>
+      <p>Python & JavaScript · Déploiement en quelques minutes</p>
     </div>
+    <div class="cards-grid">
+      <div class="price-card">
+        <div class="card-top">
+          <div class="card-name">Starter — Python</div>
+          <div class="card-desc">Pour un bot discord.py léger avec déploiement rapide.</div>
+        </div>
+        <div class="card-price-block"><span class="price-num">2.99€</span><span class="price-per">/ mois</span></div>
+        <div class="card-hr"></div>
+        <div class="card-features">
+          <div class="card-feat"><div class="feat-bullet"></div>512 MB RAM</div>
+          <div class="card-feat"><div class="feat-bullet"></div>discord.py pré-installé</div>
+          <div class="card-feat"><div class="feat-bullet"></div>Redémarrage automatique</div>
+          <div class="card-feat"><div class="feat-bullet"></div>Uptime 99.9%</div>
+        </div>
+        <a href="https://discord.gg/Kvy6xKcG" target="_blank" class="card-btn">Commander sur Discord</a>
+      </div>
+      <div class="price-card featured">
+        <div class="card-badge">Populaire</div>
+        <div class="card-top">
+          <div class="card-name">Pro — Python</div>
+          <div class="card-desc">Pour les bots avancés avec base de données et planification.</div>
+        </div>
+        <div class="card-price-block"><span class="price-num">5.99€</span><span class="price-per">/ mois</span></div>
+        <div class="card-hr"></div>
+        <div class="card-features">
+          <div class="card-feat"><div class="feat-bullet"></div>1 GB RAM</div>
+          <div class="card-feat"><div class="feat-bullet"></div>SQLite / PostgreSQL inclus</div>
+          <div class="card-feat"><div class="feat-bullet"></div>Panel web + Logs</div>
+          <div class="card-feat"><div class="feat-bullet"></div>Uptime 99.9%</div>
+        </div>
+        <a href="https://discord.gg/Kvy6xKcG" target="_blank" class="card-btn primary">Commander sur Discord</a>
+      </div>
+      <div class="price-card">
+        <div class="card-top">
+          <div class="card-name">Starter — JavaScript</div>
+          <div class="card-desc">Node.js pour discord.js, léger et économique.</div>
+        </div>
+        <div class="card-price-block"><span class="price-num">2.99€</span><span class="price-per">/ mois</span></div>
+        <div class="card-hr"></div>
+        <div class="card-features">
+          <div class="card-feat"><div class="feat-bullet"></div>512 MB RAM</div>
+          <div class="card-feat"><div class="feat-bullet"></div>Node.js LTS</div>
+          <div class="card-feat"><div class="feat-bullet"></div>npm / pnpm inclus</div>
+          <div class="card-feat"><div class="feat-bullet"></div>Uptime 99.9%</div>
+        </div>
+        <a href="https://discord.gg/Kvy6xKcG" target="_blank" class="card-btn">Commander sur Discord</a>
+      </div>
+      <div class="price-card">
+        <div class="card-top">
+          <div class="card-name">Pro — JavaScript</div>
+          <div class="card-desc">discord.js avancé avec sharding et base de données.</div>
+        </div>
+        <div class="card-price-block"><span class="price-num">5.99€</span><span class="price-per">/ mois</span></div>
+        <div class="card-hr"></div>
+        <div class="card-features">
+          <div class="card-feat"><div class="feat-bullet"></div>1 GB RAM</div>
+          <div class="card-feat"><div class="feat-bullet"></div>Node.js LTS</div>
+          <div class="card-feat"><div class="feat-bullet"></div>MongoDB / Redis en option</div>
+          <div class="card-feat"><div class="feat-bullet"></div>Panel web + Logs</div>
+        </div>
+        <a href="https://discord.gg/Kvy6xKcG" target="_blank" class="card-btn">Commander sur Discord</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- MINECRAFT -->
+  <div class="tab-panel" id="tab-minecraft">
+    <div class="pricing-header">
+      <h2>Serveurs Minecraft</h2>
+      <p>Vanilla, PaperMC, Forge, Fabric · Panel Pterodactyl inclus</p>
+    </div>
+    <div class="cards-grid">
+      <div class="price-card">
+        <div class="card-top">
+          <div class="card-name">Starter</div>
+          <div class="card-desc">Pour jouer entre amis. Vanilla ou PaperMC, prêt en 1 clic.</div>
+        </div>
+        <div class="card-price-block"><span class="price-num">4.99€</span><span class="price-per">/ mois</span></div>
+        <div class="card-hr"></div>
+        <div class="card-features">
+          <div class="card-feat"><div class="feat-bullet"></div>2 GB RAM</div>
+          <div class="card-feat"><div class="feat-bullet"></div>10 joueurs max</div>
+          <div class="card-feat"><div class="feat-bullet"></div>Vanilla / PaperMC</div>
+          <div class="card-feat"><div class="feat-bullet"></div>Sauvegarde quotidienne</div>
+        </div>
+        <a href="https://discord.gg/Kvy6xKcG" target="_blank" class="card-btn">Commander sur Discord</a>
+      </div>
+      <div class="price-card featured">
+        <div class="card-badge">Populaire</div>
+        <div class="card-top">
+          <div class="card-name">Advanced</div>
+          <div class="card-desc">Pour une communauté avec plugins, modpacks et support prioritaire.</div>
+        </div>
+        <div class="card-price-block"><span class="price-num">9.99€</span><span class="price-per">/ mois</span></div>
+        <div class="card-hr"></div>
+        <div class="card-features">
+          <div class="card-feat"><div class="feat-bullet"></div>4 GB RAM</div>
+          <div class="card-feat"><div class="feat-bullet"></div>Joueurs illimités</div>
+          <div class="card-feat"><div class="feat-bullet"></div>Spigot / Forge / Fabric</div>
+          <div class="card-feat"><div class="feat-bullet"></div>Anti-DDoS + Pterodactyl</div>
+        </div>
+        <a href="https://discord.gg/Kvy6xKcG" target="_blank" class="card-btn primary">Commander sur Discord</a>
+      </div>
+      <div class="price-card">
+        <div class="card-top">
+          <div class="card-name">Extreme</div>
+          <div class="card-desc">Pour les grands réseaux avec BungeeCord et haute disponibilité.</div>
+        </div>
+        <div class="card-price-block"><span class="price-num">18.99€</span><span class="price-per">/ mois</span></div>
+        <div class="card-hr"></div>
+        <div class="card-features">
+          <div class="card-feat"><div class="feat-bullet"></div>8 GB RAM</div>
+          <div class="card-feat"><div class="feat-bullet"></div>BungeeCord / Velocity</div>
+          <div class="card-feat"><div class="feat-bullet"></div>IP dédiée + Anti-DDoS</div>
+          <div class="card-feat"><div class="feat-bullet"></div>Support prioritaire 24/7</div>
+        </div>
+        <a href="https://discord.gg/Kvy6xKcG" target="_blank" class="card-btn">Commander sur Discord</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- FIVEM -->
+  <div class="tab-panel" id="tab-fivem">
+    <div class="pricing-header">
+      <h2>Serveurs FiveM</h2>
+      <p>ESX, QBCore, txAdmin — disponible très prochainement</p>
+    </div>
+    <div class="cards-grid">
+      <div class="price-card">
+        <div class="card-top">
+          <div class="card-name">Starter</div>
+          <div class="card-desc">Lance ton serveur FiveM avec txAdmin et configuration simple.</div>
+        </div>
+        <div class="soon-pill"><div class="soon-dot"></div>Bientôt disponible</div>
+        <div class="card-hr"></div>
+        <div class="card-features">
+          <div class="card-feat"><div class="feat-bullet"></div>32 slots</div>
+          <div class="card-feat"><div class="feat-bullet"></div>txAdmin inclus</div>
+          <div class="card-feat"><div class="feat-bullet"></div>Ressources illimitées</div>
+          <div class="card-feat"><div class="feat-bullet"></div>Uptime 99.9%</div>
+        </div>
+        <a class="card-btn disabled">Bientôt disponible</a>
+      </div>
+      <div class="price-card featured">
+        <div class="card-badge">Populaire</div>
+        <div class="card-top">
+          <div class="card-name">Pro</div>
+          <div class="card-desc">Serveur RP optimisé pour ESX / QBCore avec MySQL inclus.</div>
+        </div>
+        <div class="soon-pill"><div class="soon-dot"></div>Bientôt disponible</div>
+        <div class="card-hr"></div>
+        <div class="card-features">
+          <div class="card-feat"><div class="feat-bullet"></div>64 slots</div>
+          <div class="card-feat"><div class="feat-bullet"></div>txAdmin + MySQL</div>
+          <div class="card-feat"><div class="feat-bullet"></div>Anti-DDoS inclus</div>
+          <div class="card-feat"><div class="feat-bullet"></div>ESX / QBCore ready</div>
+        </div>
+        <a class="card-btn disabled">Bientôt disponible</a>
+      </div>
+      <div class="price-card">
+        <div class="card-top">
+          <div class="card-name">Extreme</div>
+          <div class="card-desc">Pour les gros serveurs RP avec ressources dédiées.</div>
+        </div>
+        <div class="soon-pill"><div class="soon-dot"></div>Bientôt disponible</div>
+        <div class="card-hr"></div>
+        <div class="card-features">
+          <div class="card-feat"><div class="feat-bullet"></div>128 slots</div>
+          <div class="card-feat"><div class="feat-bullet"></div>Ressources dédiées</div>
+          <div class="card-feat"><div class="feat-bullet"></div>IP dédiée + Anti-DDoS</div>
+          <div class="card-feat"><div class="feat-bullet"></div>Support 24/7 prioritaire</div>
+        </div>
+        <a class="card-btn disabled">Bientôt disponible</a>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section id="about" class="about">
-    <div class="container">
-        <h2 class="reveal">À propos</h2>
-        <div class="about-content">
-            <div class="about-text reveal">
-                <p>Fondée pour repousser les limites de la compétition esport, REGROUPE rassemble des joueurs talentueux et passionnés animés par une même mentalité : l'excellence et la performance.</p>
-                <p>Notre structure s'appuie sur un coaching personnalisé, des analyses approfondies et un entraînement rigoureux pour optimiser le potentiel de chaque joueur.</p>
-                <p>Ensemble, nous visons les sommets du gaming compétitif et travaillons à établir une dynastie dans l'esport français et international.</p>
-            </div>
-            <div class="about-stats reveal">
-                <div class="about-stat">
-                    <i class="fas fa-trophy"></i>
-                    <h4>Victoires</h4>
-                    <p>15+ Tournois</p>
-                </div>
-                <div class="about-stat">
-                    <i class="fas fa-users"></i>
-                    <h4>Communauté</h4>
-                    <p>500+ Membres</p>
-                </div>
-                <div class="about-stat">
-                    <i class="fas fa-calendar-alt"></i>
-                    <h4>Activité</h4>
-                    <p>7j/7 24h/24</p>
-                </div>
-                <div class="about-stat">
-                    <i class="fas fa-chart-line"></i>
-                    <h4>Croissance</h4>
-                    <p>+30% en 2024</p>
-                </div>
-            </div>
-        </div>
+<!-- DISCORD CTA -->
+<div class="discord-cta reveal">
+  <div class="discord-inner">
+    <div class="discord-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="#5865f2"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057c.004.027.019.053.04.07a19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg></div>
+    <h2>Toutes les commandes<br><em>passent par Discord.</em></h2>
+    <p>Notre équipe est disponible sur le serveur Discord pour prendre votre commande, répondre à vos questions et assurer votre support.</p>
+    <a href="https://discord.gg/Kvy6xKcG" target="_blank" class="btn-discord">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057c.004.027.019.053.04.07a19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg>
+      Rejoindre notre Discord
+    </a>
+  </div>
+</div>
+
+<!-- FAQ -->
+<section id="faq" class="faq-section reveal">
+  <div class="section-tag">FAQ</div>
+  <h2>Questions fréquentes.</h2>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">
+      Comment passer commande ?
+      <div class="faq-arrow">+</div>
     </div>
+    <div class="faq-a">Toutes les commandes se font sur notre serveur Discord. Rejoignez-le, ouvrez un ticket dans le canal dédié, et notre équipe s'occupe du reste en quelques minutes.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">
+      Quels sont les modes de paiement acceptés ?
+      <div class="faq-arrow">+</div>
+    </div>
+    <div class="faq-a">Nous acceptons PayPal et la plupart des cartes bancaires. D'autres moyens de paiement peuvent être discutés sur Discord selon votre situation.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">
+      Puis-je upgrader mon offre plus tard ?
+      <div class="faq-arrow">+</div>
+    </div>
+    <div class="faq-a">Oui, il est possible de changer d'offre à tout moment en contactant notre support Discord. Le changement est effectué rapidement et le remboursement au prorata est appliqué.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">
+      Où sont localisés vos serveurs ?
+      <div class="faq-arrow">+</div>
+    </div>
+    <div class="faq-a">Nos serveurs sont hébergés en France (Paris), garantissant une faible latence pour les utilisateurs européens et une conformité avec la réglementation RGPD.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">
+      Quand arrive l'hébergement FiveM ?
+      <div class="faq-arrow">+</div>
+    </div>
+    <div class="faq-a">Les offres FiveM sont en cours de développement. Rejoignez notre Discord pour être notifié en avant-première lors du lancement et bénéficier d'une offre de lancement.</div>
+  </div>
 </section>
 
-<section class="discord-cta" id="discord">
-    <div class="container">
-        <div class="reveal">
-            <h2>Rejoins l'Aventure</h2>
-            <p>Intègre notre communauté Discord, suis nos actualités, participe aux événements et deviens membre de notre famille esport.</p>
-            <a href="#" class="btn discord">
-                <i class="fab fa-discord" style="margin-right: 10px;"></i> Rejoindre Discord
-            </a>
-        </div>
-    </div>
-</section>
-
+<!-- FOOTER -->
 <footer>
-    <div class="container">
-        <div class="footer-content">
-            <div class="footer-column">
-                <h4>REGROUPE</h4>
-                <p>Équipe esport d'élite compétitive sur les plus grandes scènes internationales.</p>
-                <div class="social-links">
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-twitch"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
-                </div>
-            </div>
-            <div class="footer-column">
-                <h4>Navigation</h4>
-                <ul class="footer-links">
-                    <li><a href="#hero">Accueil</a></li>
-                    <li><a href="#players">Joueurs</a></li>
-                    <li><a href="#games">Jeux</a></li>
-                    <li><a href="#about">À propos</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h4>Équipe</h4>
-                <ul class="footer-links">
-                    <li><a href="#">Recrutement</a></li>
-                    <li><a href="#">Sponsors</a></li>
-                    <li><a href="#">Partenariats</a></li>
-                    <li><a href="#">Presse</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h4>Contact</h4>
-                <ul class="footer-links">
-                    <li><a href="mailto:contact@regroupe-esport.com">contact@regroupe-esport.com</a></li>
-                    <li><a href="#">Support</a></li>
-                    <li><a href="#">Demande partenaire</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="copyright">
-            <p>&copy; 2026 - REGROUPE Esport Team. Tous droits réservés.</p>
-        </div>
-    </div>
+  <div class="footer-brand">
+    <a class="nav-logo" href="#" style="margin-bottom:12px;display:inline-flex">
+      <div class="logo-mark">N</div>
+      NoxifyHost
+    </a>
+    <p>Hébergement simple et performant pour votre communauté. Support 24/7 via Discord.</p>
+  </div>
+  <div class="footer-col">
+    <h4>Offres</h4>
+    <a href="#pricing" onclick="goToTab('bots')">Bots Discord</a>
+    <a href="#pricing" onclick="goToTab('minecraft')">Minecraft</a>
+    <a href="#pricing" onclick="goToTab('fivem')">FiveM (Soon)</a>
+  </div>
+  <div class="footer-col">
+    <h4>Support</h4>
+    <a href="https://discord.gg/Kvy6xKcG" target="_blank">Discord</a>
+    <a href="#">Documentation</a>
+    <a href="#">Status</a>
+  </div>
+  <div class="footer-col">
+    <h4>Légal</h4>
+    <a href="#">CGV</a>
+    <a href="#">Mentions légales</a>
+    <a href="#">Politique de confidentialité</a>
+  </div>
 </footer>
+<div class="footer-bottom">
+  <p>© 2026 NoxifyHost · Tous droits réservés</p>
+  <p>Made with ♥ en France</p>
+</div>
 
 <script>
-/* ===== MENU TOGGLE ===== */
-const menuToggle = document.getElementById('menuToggle');
-const navMenu = document.getElementById('navMenu');
-
-menuToggle.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
-    menuToggle.innerHTML = navMenu.classList.contains('active') 
-        ? '<i class="fas fa-times"></i>' 
-        : '<i class="fas fa-bars"></i>';
+// CURSOR
+const cursor = document.getElementById('cursor');
+const ring = document.getElementById('cursorRing');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{
+  mx=e.clientX;my=e.clientY;
+  cursor.style.left=mx+'px';cursor.style.top=my+'px';
+});
+function animRing(){
+  rx+=(mx-rx)*.12;ry+=(my-ry)*.12;
+  ring.style.left=rx+'px';ring.style.top=ry+'px';
+  requestAnimationFrame(animRing);
+}
+animRing();
+document.querySelectorAll('a,button,.drop-item,.faq-q').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{
+    cursor.style.width='6px';cursor.style.height='6px';
+    ring.style.width='48px';ring.style.height='48px';
+  });
+  el.addEventListener('mouseleave',()=>{
+    cursor.style.width='10px';cursor.style.height='10px';
+    ring.style.width='36px';ring.style.height='36px';
+  });
 });
 
-// Fermer le menu en cliquant sur un lien
-document.querySelectorAll('#navMenu a').forEach(link => {
-    link.addEventListener('click', () => {
-        navMenu.classList.remove('active');
-        menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
-    });
-});
-
-/* ===== SCROLL REVEAL ===== */
-const reveals = document.querySelectorAll('.reveal');
-
-function revealOnScroll() {
-    reveals.forEach(el => {
-        const windowHeight = window.innerHeight;
-        const elementTop = el.getBoundingClientRect().top;
-        const elementVisible = 100;
-        
-        if (elementTop < windowHeight - elementVisible) {
-            el.classList.add('active');
-        }
-    });
+// THEME
+function toggleTheme(){
+  const html=document.documentElement;
+  const isDark=html.getAttribute('data-theme')==='dark';
+  html.setAttribute('data-theme',isDark?'light':'dark');
+  document.getElementById('theme-icon').textContent=isDark?'☾':'○';
 }
 
-window.addEventListener('scroll', revealOnScroll);
-revealOnScroll(); // Initial check
-
-/* ===== HEADER SCROLL EFFECT ===== */
-window.addEventListener('scroll', () => {
-    const header = document.querySelector('header');
-    if (window.scrollY > 50) {
-        header.style.padding = '0';
-        header.style.backdropFilter = 'blur(15px)';
-    } else {
-        header.style.padding = '';
-        header.style.backdropFilter = 'blur(10px)';
-    }
+// DROPDOWN
+let openDrop=null,openBtn=null;
+function toggleDrop(id,btn){
+  const drop=document.getElementById(id);
+  if(openDrop&&openDrop!==drop){
+    openDrop.classList.remove('open');
+    if(openBtn)openBtn.classList.remove('open');
+  }
+  drop.classList.toggle('open');
+  btn.classList.toggle('open');
+  openDrop=drop.classList.contains('open')?drop:null;
+  openBtn=openDrop?btn:null;
+}
+document.addEventListener('click',e=>{
+  if(openDrop&&!e.target.closest('.nav-item')){
+    openDrop.classList.remove('open');
+    if(openBtn)openBtn.classList.remove('open');
+    openDrop=null;openBtn=null;
+  }
 });
 
-/* ===== SMOOTH SCROLL ===== */
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        const targetId = this.getAttribute('href');
-        if (targetId === '#') return;
-        
-        const targetElement = document.querySelector(targetId);
-        if (targetElement) {
-            window.scrollTo({
-                top: targetElement.offsetTop - 80,
-                behavior: 'smooth'
-            });
-        }
-    });
-});
-
-/* ===== ANIMATE STATS ===== */
-function animateStats() {
-    const statNumbers = document.querySelectorAll('.stat-number');
-    
-    statNumbers.forEach(stat => {
-        const target = parseInt(stat.textContent);
-        let current = 0;
-        const increment = target / 50;
-        const timer = setInterval(() => {
-            current += increment;
-            if (current >= target) {
-                current = target;
-                clearInterval(timer);
-            }
-            stat.textContent = Math.floor(current) + (stat.textContent.includes('+') ? '+' : '');
-        }, 30);
-    });
+// CLOSE ALL DROPDOWNS
+function closeDrop(){
+  document.querySelectorAll('.dropdown.open').forEach(d=>d.classList.remove('open'));
+  document.querySelectorAll('.nav-link.open').forEach(b=>b.classList.remove('open'));
+  openDrop=null;openBtn=null;
 }
 
-// Déclencher l'animation des stats quand la section hero est visible
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            animateStats();
-            observer.unobserve(entry.target);
-        }
-    });
-}, { threshold: 0.5 });
+// SWITCH TAB (boutons de l'onglet pricing)
+function switchTab(id,btn){
+  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('tab-'+id).classList.add('active');
+  btn.classList.add('active');
+}
 
-const heroSection = document.querySelector('.hero');
-if (heroSection) observer.observe(heroSection);
+// GO TO TAB (depuis le nav dropdown ou le footer)
+function goToTab(id){
+  closeDrop();
+  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  const panel=document.getElementById('tab-'+id);
+  if(panel)panel.classList.add('active');
+  document.querySelectorAll('.tab').forEach(t=>{
+    if(t.getAttribute('onclick')&&t.getAttribute('onclick').includes("'"+id+"'"))t.classList.add('active');
+  });
+}
+
+// FAQ
+function toggleFaq(el){
+  const item=el.parentElement;
+  const isOpen=item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i=>i.classList.remove('open'));
+  if(!isOpen)item.classList.add('open');
+}
+
+// SCROLL REVEAL
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')});
+},{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 </script>
-
 </body>
 </html>
-
