@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+<meta charset="UTF-8">
+<title>Noxify Host</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins,sans-serif;
+}
+
+body{
+background:#070707;
+color:white;
+overflow-x:hidden;
+}
+
+header{
+position:fixed;
+top:0;
+width:110%;
+display:flex;
+align-items:center;
+justify-content:center;
+gap:50px; /* espace entre logo / menu / boutons */
+padding:15px 40px;
+background:rgba(0,0,0,0.65);
+backdrop-filter:blur(15px);
+z-index:1000;
+}
+
+.logo{
+font-weight:900;
+font-size:29px;
+}
+
+.logo span{
+color:#ff2b2b;
+}
+
+nav a{
+margin:0 13px;
+color:#ddd;
+text-decoration:none;
+font-size:17px;
+transition:0.3s;
+}
+
+nav a:hover{
+color:#ff2b2b;
+}
+
+.buttons button{
+padding:10px 28px;
+border:none;
+border-radius:10px;
+cursor:pointer;
+margin-left:15px;
+font-weight:00;
+transition:0.3s;
+}
+
+.demo{
+background:white;
+}
+
+.demo:hover{
+transform:translateY(-2px);
+}
+
+.client{
+background:#ff2b2b;
+color:white;
+box-shadow:0 0 12px #ff2b2b70;
+}
+
+.client:hover{
+transform:translateY(-2px);
+box-shadow:0 0 18px #ff2b2b;
+}
+/* HERO */
+.hero{
+height:70vh;
+background:url("fondMinecraft.png") center/cover;
+display:flex;
+align-items:center;      /* centre verticalement */
+justify-content:flex-start; /* met à gauche */
+text-align:left;
+padding-left:20%;
+}
+
+.hero h1{
+font-size:80px;
+line-height:1.1;
+}
+
+.hero p{
+margin-top:20px;
+color:#ccc;
+font-size:22px;
+}
+
+.hero span{
+color:#ff2b2b;
+}
+
+
+
+.hero-buttons{
+margin-top:35px;
+}
+
+.hero-buttons button{
+padding:14px 30px;
+border:none;
+border-radius:8px;
+margin:10px;
+cursor:pointer;
+font-weight:500;
+}
+
+.red{
+background:#ff2b2b;
+color:white;
+}
+
+.white{
+background:white;
+}
+
+/* PRICING */
+.pricing{
+padding:120px 10%;
+background:#060606;
+text-align:center;
+}
+
+.pricing span{
+color:#ff2b2b;
+}
+
+.pricing-desc{
+color:#ccc;
+margin-top:10px;
+}
+
+.pricing-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+gap:30px;
+margin-top:50px;
+}
+
+.price-card{
+background:#0d0d0d;
+border-radius:12px;
+overflow:hidden;
+transition:0.3s;
+}
+
+.price-card:hover{
+transform:translateY(-10px);
+box-shadow:0 0 25px rgba(255,43,43,0.3);
+}
+
+.price-top{
+background:linear-gradient(135deg,#3a0303,#ff2b2b);
+padding:30px;
+}
+
+.price-top h3{
+font-size:22px;
+}
+
+.price-top h1{
+margin-top:10px;
+font-size:32px;
+}
+
+.price-top span{
+font-size:16px;
+color:white;
+}
+
+.price-card ul{
+list-style:none;
+padding:25px;
+text-align:left;
+}
+
+.price-card li{
+margin-bottom:10px;
+color:#ccc;
+}
+
+.price-card a.order-btn{
+display:block;
+margin:20px;
+padding:12px;
+text-align:center;
+background:#ff2b2b;
+color:white;
+border-radius:8px;
+text-decoration:none;
+font-weight:600;
+transition:0.3s;
+}
+
+.price-card a.order-btn:hover{
+background:#ff4444;
+}
+
+/* SERVICES Minecraft */
+.Minecraft{
+padding:120px 10%;
+text-align:center;
+background:#050505;
+}
+
+.Minecraft span{
+color:#ff2b2b;
+}
+
+.Minecraft-desc{
+margin-top:15px;
+color:#ccc;
+}
+
+.Minecraft-features{
+display:flex;
+justify-content:center;
+gap:30px;
+margin-top:50px;
+flex-wrap:wrap;
+}
+
+.Minecraft-box{
+background:#0d0d0d;
+padding:35px;
+border-radius:12px;
+width:230px;
+transition:0.4s;
+}
+
+.Minecraft-box:hover{
+transform:translateY(-8px);
+box-shadow:0 0 20px #ff2b2b40;
+}
+
+.Minecraft-box p{
+color:#aaa;
+font-size:14px;
+}
+
+.Minecraft-stats{
+display:flex;
+justify-content:center;
+gap:80px;
+margin-top:60px;
+flex-wrap:wrap;
+}
+
+.Minecraft-stats h3{
+color:#ff2b2b;
+font-size:32px;
+}
+
+.Minecraft-stats p{
+color:#aaa;
+}
+
+/* FOOTER */
+footer{
+text-align:center;
+padding:60px;
+background:#000;
+color:#777;
+}
+.menu{
+display:flex;
+list-style:none;
+gap:0px;
+align-items:center;
+}
+
+.menu a{
+color:white;
+text-decoration:none;
+font-weight:500;
+}
+
+.dropdown{
+position:relative;
+}
+
+/* MENU */
+.dropdown-menu{
+position:absolute;
+top:45px;
+left:0;
+background:#0e0e0e;
+padding:25px 40px;
+border-radius:10px;
+display:flex;
+gap:60px;
+
+opacity:0;
+visibility:hidden;
+transform:translateY(10px);
+transition:0.25s;
+box-shadow:0 10px 30px rgba(255,255,255,0.15);
+}
+
+.dropdown:hover .dropdown-menu{
+opacity:1;
+visibility:visible;
+transform:translateY(0);
+}
+
+.column{
+display:flex;
+flex-direction:column;
+gap:12px;
+}
+
+.column a{
+display:flex;
+align-items:center;
+gap:10px;
+color:#ccc;
+font-size:15px;
+}
+
+.column a:hover{
+color:white;
+}
+
+.column img{
+width:18px;
+height:18px;
+object-fit:contain;
+}
+</style>
+</head>
+
+<body>
+<header>
+
+<div class="logo">
+<span>Noxify</span>-Host
+</div>
+
+<nav class="navbar">
+<ul class="menu">
+
+<li><a href="index.html">Home</a></li>
+<li><a href="fivem.html">FiveM</a></li>
+<li><a href="minecraft.html">Minecraft</a></li>
+
+<li class="dropdown">
+<a href="#">Serveur de jeux ▾</a>
+
+<div class="dropdown-menu">
+
+<div class="column">
+<a href="fivem.html"><img src="fivem.png"> FiveM</a>
+<a href="minecraft.html"><img src="minecraft.png"> Minecraft</a>
+<a href="rust.html"><img src="rust.png"> Rust</a>
+<a href="Gmod.html"><img src="gmod.png"> Garry's Mod</a>
+<a href="#"><img src="ark.png"> Ark Survival</a>
+
+</div>
+
+</div>
+</li>
+
+<li><a href="#">VPS</a></li>
+<li><a href="#">Cloud</a></li>
+
+</ul>
+</nav>
+
+<div class="buttons">
+<button class="demo" onclick="window.open('https://discord.gg/3Z8VwZyv','_blank')">DISCORD</button>
+<button class="client">ESPACE CLIENT</button>
+</div>
+
+</header>
+
+<section class="hero">
+<div>
+<h1>Hebergeur <span>Minecraft</span></h1>
+<p>
+Location de serveurs Minecraft performants pour créer votre serveur,<br>
+accueillir vos joueurs et garantir une expérience fluide.
+</p>
+<div class="hero-buttons">
+<button class="red">Nos offres</button>
+</div>
+</div>
+</section>
+
+<!-- OFFRES -->
+<section class="pricing">
+<h2>Serveurs <span>Minecraft</span></h2>
+<p class="pricing-desc">Choisissez l'offre adaptée à votre serveur RP.</p>
+
+<div class="pricing-grid">
+
+<div class="price-card">
+<div class="price-top">
+<h3>Minecraft Stone</h3>
+<h1>2.70€ <span>/month</span></h1>
+</div>
+
+<ul>
+<li>AMD Ryzen</li>
+<li>2 vCore</li>
+<li>4 GB RAM</li>
+<li>15 GB NVMe</li>
+<li>10 Gbps</li>
+<li>1 database</li>
+<li>Panel included</li>
+</ul>
+
+<a class="order-btn" href="https://discord.gg/2qw3WRteSA" target="_blank">Commander</a>
+</div>
+
+<div class="price-card">
+<div class="price-top">
+<h3>Minecraft Iron</h3>
+<h1>5.49€ <span>/month</span></h1>
+</div>
+
+<ul>
+<li>AMD Ryzen</li>
+<li>4 vCore</li>
+<li>8 GB RAM</li>
+<li>40 GB NVMe</li>
+<li>10 Gbps</li>
+<li>1 database</li>
+<li>Anti-DDoS GCORE + StormWall</li>
+<li>Java & Bedrock</li>
+<li>Backups included</li>
+</ul>
+<a class="order-btn" href="https://discord.gg/2qw3WRteSA" target="_blank">Commander</a>
+</div>
+
+<div class="price-card">
+<div class="price-top">
+<h3>Minecraft Diamond</h3>
+<h1>13€ <span>/month</span></h1>
+</div>
+
+<ul>
+<li>AMD Ryzen</li>
+<li>6 vCore</li>
+<li>16 GB RAM</li>
+<li>80 GB NVMe</li>
+<li>10 Gbps</li>
+<li>2 databases</li>
+<li>Wisp Panel included</li>
+<li>Anti-DDoS GCORE + StormWall</li>
+<li>Java & Bedrock</li>
+<li>Backups included</li>
+</ul>
+<a class="order-btn" href="https://discord.gg/2qw3WRteSA" target="_blank">Commander</a>
+</div>
+
+
+
+</div>
+</section>
+
+<!-- SERVICES -->
+<section class="Minecraft">
+<h2>Hébergement <span>Minecraft</span></h2>
+<p class="Minecraft-desc">
+Serveurs Minecraft optimisés pour le Roleplay avec performances maximales.
+</p>
+
+<div class="Minecraft-features">
+<div class="Minecraft-box">
+<h3>Clé Patreon incluse</h3>
+<p>Accès premium pour votre serveur.</p>
+</div>
+<div class="Minecraft-box">
+<h3>CPU Ryzen</h3>
+<p>Machines puissantes optimisées RP.</p>
+</div>
+<div class="Minecraft-box">
+<h3>Anti-DDoS Game</h3>
+<p>Protection avancée contre les attaques.</p>
+</div>
+<div class="Minecraft-box">
+<h3>Support 24/7</h3>
+<p>Support technique rapide.</p>
+</div>
+</div>
+
+<div class="Minecraft-stats">
+<div>
+<h3>+30</h3>
+<p>Commandes</p>
+</div>
+<div>
+<h3>+35</h3>
+<p>Clients</p>
+</div>
+<div>
+<h3>+16</h3>
+<p>Infrastructures</p>
+</div>
+</div>
+</section>
+
+<footer>
+<h3>Noxify Host</h3>
+<p>Hébergement de serveurs de jeux & VPS haute performance.</p>
+<br>
+<p>Minecraft • Minecraft • VPS • Cloud</p>
+<br>
+<p>© 2026 Noxify Host</p>
+</footer>
+
+</body>
+</html>
