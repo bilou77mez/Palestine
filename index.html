@@ -3,9 +3,10 @@
 
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Noxify Host</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 
 <style>
 
@@ -22,368 +23,88 @@ color:white;
 overflow-x:hidden;
 }
 
+/* COULEUR ACCENT */
+:root{
+--accent:#8b5cf6;
+--accent-glow:#8b5cf640;
+--accent-glow-strong:#8b5cf6;
+}
+
 /* NAVBAR */
 
 header{
 position:fixed;
 top:0;
-width:110%;
+width:100%;
 display:flex;
 align-items:center;
 justify-content:center;
-gap:50px; /* espace entre logo / menu / boutons */
+gap:50px;
 padding:15px 40px;
-background:rgba(0,0,0,0.65);
+background:rgba(7,7,7,0.80);
 backdrop-filter:blur(15px);
+-webkit-backdrop-filter:blur(15px);
+border-bottom:1px solid rgba(139,92,246,0.15);
 z-index:1000;
 }
 
 .logo{
 font-weight:900;
 font-size:29px;
+letter-spacing:-0.5px;
 }
 
 .logo span{
-color:#ff2b2b;
+color:var(--accent);
 }
 
-nav a{
-margin:0 13px;
-color:#ddd;
-text-decoration:none;
-font-size:17px;
-transition:0.3s;
-}
-
-nav a:hover{
-color:#ff2b2b;
-}
-
-.buttons button{
-padding:10px 28px;
-border:none;
-border-radius:10px;
-cursor:pointer;
-margin-left:15px;
-font-weight:00;
-transition:0.3s;
-}
-
-.demo{
-background:white;
-}
-
-.demo:hover{
-transform:translateY(-2px);
-}
-
-.client{
-background:#ff2b2b;
-color:white;
-box-shadow:0 0 12px #ff2b2b70;
-}
-
-.client:hover{
-transform:translateY(-2px);
-box-shadow:0 0 18px #ff2b2b;
-}
-
-/* HERO */
-
-.hero{
-height:68vh;
-background:url("fond.png") center/cover;
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-position:relative;
-}
-
-
-
-.hero div{
-position:relative;
-z-index:2;
-animation:fadeUp 1s ease;
-}
-
-.hero h1{
-font-size:60px;
-line-height:1.1;
-}
-
-.hero span{
-color:#ff2b2b;
-}
-
-.hero p{
-margin-top:20px;
-color:#ccc;
-font-size:18px;
-}
-
-.hero-buttons{
-margin-top:35px;
-}
-
-.hero-buttons button{
-padding:14px 30px;
-border:none;
-border-radius:8px;
-margin:10px;
-cursor:pointer;
-font-weight:500;
-transition:0.3s;
-}
-
-.red{
-background:#ff2b2b;
-color:white;
-box-shadow:0 0 20px #ff2b2b60;
-}
-
-.red:hover{
-transform:translateY(-3px);
-box-shadow:0 0 25px #ff2b2b;
-}
-
-.white{
-background:white;
-}
-
-.white:hover{
-transform:translateY(-3px);
-}
-
-/* SECTIONS */
-
-section{
-padding:100px 10%;
-text-align:center;
-}
-
-/* JEUX (inchangé visuellement) */
-
-.games-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:20px;
-margin-top:40px;
-}
-
-.game-card{
-background:#111;
-border-radius:12px;
-overflow:hidden;
-transition:0.3s;
-cursor:pointer;
-}
-
-.game-card img{
-width:100%;
-height:180px;
-object-fit:cover;
-}
-
-.game-info{
-padding:17px;
-text-align:left;
-}
-
-.game-info h3{
-margin-bottom:5px;
-}
-
-.game-info p{
-color:#ccc;
-font-size:14px;
-}
-
-.game-card button{
-margin-top:10px;
-padding:8px 15px;
-border:none;
-border-radius:5px;
-background:red;
-color:white;
-cursor:pointer;
-}
-
-.game-card:hover{
-transform:scale(1.05);
-}
-
-/* FEATURES */
-
-.features-grid{
-display:flex;
-justify-content:center;
-gap:60px;
-margin-top:40px;
-flex-wrap:wrap;
-}
-
-.feature{
-max-width:260px;
-padding:30px;
-background:#0d0d0d;
-border-radius:12px;
-transition:0.4s;
-}
-
-.feature:hover{
-transform:translateY(-8px);
-box-shadow:0 0 20px #ff2b2b40;
-}
-
-.feature-icon{
-width:50px;
-margin-bottom:15px;
-}
-
-/* PANEL */
-
-.panel-section{
-background:#060606;
-}
-
-.panel-container{
-display:flex;
-align-items:center;
-justify-content:space-between;
-gap:60px;
-flex-wrap:wrap;
-}
-
-.panel-left{
-max-width:420px;
-text-align:left;
-}
-
-.panel-left h2{
-font-size:36px;
-margin-bottom:25px;
-}
-
-.panel-left span{
-color:#ff2b2b;
-}
-
-.panel-left p{
-color:#ccc;
-line-height:1.7;
-}
-
-.panel-right{
-flex:1;
-}
-
-.panel-tabs{
-display:flex;
-gap:10px;
-margin-bottom:20px;
-flex-wrap:wrap;
-}
-
-.panel-tabs button{
-background:#111;
-color:white;
-border:none;
-padding:10px 18px;
-border-radius:6px;
-cursor:pointer;
-font-size:14px;
-transition:0.3s;
-}
-
-.panel-tabs button:hover{
-background:#222;
-}
-
-.panel-tabs .active{
-background:#ff2b2b;
-}
-
-.panel-image img{
-width:100%;
-border-radius:10px;
-box-shadow:0 0 30px rgba(0,0,0,0.6);
-animation:fadePanel 0.5s;
-}
-
-/* FOOTER */
-
-footer{
-text-align:center;
-padding:60px;
-background:#000;
-color:#777;
-}
-
-/* ANIMATIONS */
-
-@keyframes fadeUp{
-from{
-opacity:0;
-transform:translateY(40px);
-}
-to{
-opacity:1;
-transform:translateY(0);
-}
-}
-
-@keyframes fadePanel{
-from{
-opacity:0;
-transform:scale(0.95);
-}
-to{
-opacity:1;
-transform:scale(1);
-}
-}
-body{
-margin:0;
-font-family:Arial;
-background:#0e0e0e;
-}
-
+/* NAV MENU */
 
 .menu{
 display:flex;
 list-style:none;
-gap:0px; /* rapproche les pages */
+gap:0;
 align-items:center;
 }
 
-.menu a{
-color:white;
+.menu > li > a{
+padding:8px 16px;
+color:#ddd;
 text-decoration:none;
+font-size:15px;
 font-weight:500;
+transition:0.25s;
+border-radius:6px;
+display:block;
 }
+
+.menu > li > a:hover{
+color:white;
+background:rgba(255,255,255,0.06);
+}
+
+/* DROPDOWN */
 
 .dropdown{
 position:relative;
 }
 
-/* MENU */
 .dropdown-menu{
 position:absolute;
-top:45px;
+top:calc(100% + 10px);
 left:0;
-background:#0e0e0e; /* même couleur navbar */
-padding:25px 40px;
-border-radius:10px;
+background:#0e0e0e;
+border:1px solid rgba(139,92,246,0.18);
+padding:20px 30px;
+border-radius:12px;
 display:flex;
-gap:60px;
-
-opacity:100;
+gap:40px;
+opacity:0;
 visibility:hidden;
-transform:translateY(10px);
-transition:0.25s;
-box-shadow:0 10px 30px rgba(255, 255, 255, 0.5);
+transform:translateY(8px);
+transition:0.22s ease;
+box-shadow:0 10px 40px rgba(0,0,0,0.7), 0 0 0 1px rgba(139,92,246,0.08);
+min-width:200px;
 }
 
 .dropdown:hover .dropdown-menu{
@@ -398,25 +119,425 @@ flex-direction:column;
 gap:12px;
 }
 
-/* jeux */
 .column a{
 display:flex;
 align-items:center;
 gap:10px;
-color:#ccc;
-font-size:15px;
+color:#bbb;
+text-decoration:none;
+font-size:14px;
+font-weight:400;
+transition:0.2s;
+white-space:nowrap;
 }
 
 .column a:hover{
 color:white;
 }
 
-/* logos */
 .column img{
 width:18px;
 height:18px;
 object-fit:contain;
+opacity:0.9;
 }
+
+/* HEADER BUTTONS */
+
+.buttons{
+display:flex;
+align-items:center;
+gap:10px;
+}
+
+.buttons a, .buttons button{
+padding:9px 22px;
+border:none;
+border-radius:8px;
+cursor:pointer;
+font-weight:500;
+font-size:14px;
+text-decoration:none;
+transition:0.25s;
+display:inline-block;
+}
+
+.btn-discord{
+background:rgba(255,255,255,0.07);
+color:white;
+border:1px solid rgba(255,255,255,0.12) !important;
+}
+
+.btn-discord:hover{
+background:rgba(255,255,255,0.12);
+transform:translateY(-1px);
+}
+
+.btn-client{
+background:var(--accent);
+color:white;
+box-shadow:0 0 16px rgba(139,92,246,0.45);
+border:1px solid transparent !important;
+}
+
+.btn-client:hover{
+transform:translateY(-2px);
+box-shadow:0 0 24px rgba(139,92,246,0.7);
+}
+
+/* HERO */
+
+.hero{
+height:90vh;
+background:url("fond.png") center/cover no-repeat;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+position:relative;
+margin-top:0;
+}
+
+.hero::before{
+content:"";
+position:absolute;
+inset:0;
+background:linear-gradient(to bottom, rgba(7,7,7,0.3) 0%, rgba(7,7,7,0.6) 100%);
+}
+
+.hero div{
+position:relative;
+z-index:2;
+animation:fadeUp 0.9s ease both;
+}
+
+.hero h1{
+font-size:58px;
+font-weight:900;
+line-height:1.1;
+letter-spacing:-1px;
+}
+
+.hero span{
+color:var(--accent);
+}
+
+.hero p{
+margin-top:18px;
+color:#bbb;
+font-size:17px;
+line-height:1.6;
+}
+
+.hero-buttons{
+margin-top:36px;
+display:flex;
+gap:14px;
+justify-content:center;
+flex-wrap:wrap;
+}
+
+.btn-red{
+padding:14px 32px;
+background:var(--accent);
+color:white;
+border:none;
+border-radius:9px;
+font-size:15px;
+font-weight:600;
+cursor:pointer;
+box-shadow:0 0 24px rgba(139,92,246,0.5);
+transition:0.25s;
+}
+
+.btn-red:hover{
+transform:translateY(-3px);
+box-shadow:0 0 32px rgba(139,92,246,0.75);
+}
+
+.btn-white{
+padding:14px 32px;
+background:rgba(255,255,255,0.1);
+color:white;
+border:1px solid rgba(255,255,255,0.2);
+border-radius:9px;
+font-size:15px;
+font-weight:600;
+cursor:pointer;
+transition:0.25s;
+backdrop-filter:blur(6px);
+}
+
+.btn-white:hover{
+background:rgba(255,255,255,0.16);
+transform:translateY(-3px);
+}
+
+/* SECTIONS */
+
+section{
+padding:90px 8%;
+text-align:center;
+}
+
+section h2{
+font-size:32px;
+font-weight:700;
+margin-bottom:10px;
+}
+
+section > p{
+color:#888;
+margin-bottom:40px;
+font-size:15px;
+}
+
+/* JEUX */
+
+.games-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+gap:18px;
+margin-top:40px;
+}
+
+.game-card{
+background:#111;
+border-radius:14px;
+overflow:hidden;
+transition:0.28s;
+cursor:pointer;
+border:1px solid rgba(255,255,255,0.05);
+}
+
+.game-card img{
+width:100%;
+height:175px;
+object-fit:cover;
+display:block;
+}
+
+.game-info{
+padding:16px;
+text-align:left;
+}
+
+.game-info h3{
+margin-bottom:4px;
+font-size:16px;
+}
+
+.game-info p{
+color:#888;
+font-size:13px;
+margin-bottom:12px;
+}
+
+.game-card .btn-order{
+padding:7px 16px;
+border:none;
+border-radius:6px;
+background:var(--accent);
+color:white;
+font-size:13px;
+font-weight:500;
+cursor:pointer;
+transition:0.2s;
+box-shadow:0 0 10px rgba(139,92,246,0.3);
+}
+
+.game-card .btn-order:hover{
+background:#7c3aed;
+box-shadow:0 0 16px rgba(139,92,246,0.5);
+}
+
+.game-card:hover{
+transform:translateY(-5px);
+border-color:rgba(139,92,246,0.3);
+box-shadow:0 8px 30px rgba(0,0,0,0.5);
+}
+
+/* FEATURES */
+
+.features-grid{
+display:flex;
+justify-content:center;
+gap:24px;
+margin-top:40px;
+flex-wrap:wrap;
+}
+
+.feature{
+flex:1;
+min-width:220px;
+max-width:280px;
+padding:32px 26px;
+background:#0d0d0d;
+border:1px solid rgba(255,255,255,0.05);
+border-radius:14px;
+transition:0.35s;
+}
+
+.feature:hover{
+transform:translateY(-8px);
+border-color:rgba(139,92,246,0.3);
+box-shadow:0 0 30px rgba(139,92,246,0.15);
+}
+
+.feature-icon{
+width:48px;
+margin-bottom:14px;
+}
+
+.feature h3{
+font-size:17px;
+margin-bottom:8px;
+}
+
+.feature p{
+color:#888;
+font-size:14px;
+line-height:1.6;
+}
+
+/* PANEL */
+
+.panel-section{
+background:#060606;
+border-top:1px solid rgba(255,255,255,0.04);
+border-bottom:1px solid rgba(255,255,255,0.04);
+}
+
+.panel-container{
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:60px;
+flex-wrap:wrap;
+text-align:left;
+}
+
+.panel-left{
+max-width:400px;
+}
+
+.panel-left h2{
+font-size:34px;
+margin-bottom:20px;
+line-height:1.2;
+}
+
+.panel-left span{
+color:var(--accent);
+}
+
+.panel-left p{
+color:#888;
+line-height:1.75;
+font-size:15px;
+}
+
+.panel-right{
+flex:1;
+min-width:300px;
+}
+
+.panel-tabs{
+display:flex;
+gap:8px;
+margin-bottom:18px;
+flex-wrap:wrap;
+}
+
+.panel-tabs button{
+background:#161616;
+color:#ccc;
+border:1px solid rgba(255,255,255,0.07);
+padding:9px 18px;
+border-radius:7px;
+cursor:pointer;
+font-size:13px;
+font-weight:500;
+transition:0.22s;
+font-family:Poppins,sans-serif;
+}
+
+.panel-tabs button:hover{
+background:#1e1e1e;
+color:white;
+}
+
+.panel-tabs .active{
+background:var(--accent);
+color:white;
+border-color:transparent;
+box-shadow:0 0 12px rgba(139,92,246,0.4);
+}
+
+.panel-image img{
+width:100%;
+border-radius:12px;
+box-shadow:0 0 40px rgba(0,0,0,0.7), 0 0 0 1px rgba(139,92,246,0.1);
+animation:fadePanel 0.4s ease both;
+}
+
+/* FOOTER */
+
+footer{
+text-align:center;
+padding:60px 40px;
+background:#000;
+color:#555;
+border-top:1px solid rgba(255,255,255,0.05);
+}
+
+footer h3{
+color:#999;
+font-size:18px;
+margin-bottom:8px;
+}
+
+footer p{
+font-size:13px;
+line-height:2;
+}
+
+footer a{
+color:var(--accent);
+text-decoration:none;
+}
+
+footer a:hover{
+text-decoration:underline;
+}
+
+/* ANIMATIONS */
+
+@keyframes fadeUp{
+from{opacity:0;transform:translateY(35px);}
+to{opacity:1;transform:translateY(0);}
+}
+
+@keyframes fadePanel{
+from{opacity:0;transform:scale(0.97);}
+to{opacity:1;transform:scale(1);}
+}
+
+/* SECTION TITLE DECORATION */
+.section-label{
+display:inline-block;
+background:rgba(139,92,246,0.12);
+color:var(--accent);
+font-size:12px;
+font-weight:600;
+letter-spacing:1.5px;
+text-transform:uppercase;
+padding:5px 14px;
+border-radius:20px;
+margin-bottom:14px;
+border:1px solid rgba(139,92,246,0.2);
+}
+
 </style>
 </head>
 
@@ -424,236 +545,214 @@ object-fit:contain;
 
 <header>
 
-<div class="logo">
-<span>Noxify</span>-Host
-</div>
+  <div class="logo"><span>Noxify</span>-Host</div>
 
-<nav class="navbar">
-<ul class="menu">
+  <nav>
+    <ul class="menu">
 
-<li><a href="minecraft.html">Minecraft</a></li>
-<li><a href="fivem.html">FiveM</a></li>
+      <li><a href="minecraft.html">Minecraft</a></li>
+      <li><a href="fivem.html">FiveM</a></li>
 
-<li class="dropdown">
-<a href="#">Serveur de jeux ▾</a>
+      <li class="dropdown">
+        <a href="#">Serveur de jeux ▾</a>
+        <div class="dropdown-menu">
+          <div class="column">
+            <a href="fivem.html"><img src="fivem.png"> FiveM</a>
+            <a href="minecraft.html"><img src="minecraft.png"> Minecraft</a>
+            <a href="rust.html"><img src="rust.png"> Rust</a>
+            <a href="Gmod.html"><img src="gmod.png"> Garry's Mod</a>
+            <a href="#"><img src="ark.png"> Ark Survival</a>
+          </div>
+        </div>
+      </li>
 
-<div class="dropdown-menu">
+      <li><a href="#">VPS</a></li>
 
-<div class="column">
-<a href="fivem.html"><img src="fivem.png"> FiveM</a>
-<a href="minecraft.html"><img src="minecraft.png"> Minecraft</a>
-<a href="rust.html"><img src="rust.png"> Rust</a>
-<a href="Gmod.html"><img src="gmod.png"> Garry's Mod</a>
-<a href="#"><img src="ark.png"> Ark Survival</a>
+      <li class="dropdown">
+        <a href="#">À Propos ▾</a>
+        <div class="dropdown-menu">
+          <div class="column">
+            <a href="https://discord.gg/HhD2nzzryc" target="_blank"><img src="discord.png"> Discord</a>
+            <a href="https://docs.google.com/document/d/1-SjulJAlnoet7sxczA6nRrApv588deVYGDTuci8vPjs/edit?usp=sharing" target="_blank"><img src="argent.png"> CGU</a>
+            <a href="https://docs.google.com/document/d/1RLc7A5egnZTXRIU7VuDUEhS48q4EmQtt2GM_t5DZPIg/edit?usp=sharing" target="_blank"><img src="reglement.png"> Règlement</a>
+            <a href="https://docs.google.com/document/d/1qCGnPb2x362j0OupZAFq4QUYTR8ngCTxFYRwEbrApnY/edit?usp=sharing" target="_blank"><img src="presentation.png"> Présentation</a>
+          </div>
+        </div>
+      </li>
 
-</div>
+    </ul>
+  </nav>
 
-     
-      </div>
-    </li>
-
-    <li><a href="#">VPS</a></li>
-    
-<li class="dropdown">
-<a href="#">A Propos ▾</a>
-
-<div class="dropdown-menu">
-
-<div class="column">
-<a href="https://discord.gg/TMYsj8FPNg"><img src="discord.png"> Discord</a>
-<a href="https://docs.google.com/document/d/1-SjulJAlnoet7sxczA6nRrApv588deVYGDTuci8vPjs/edit?usp=sharing"><img src="argent.png"> Condition Générales d’utilisation</a>
-<a href="https://docs.google.com/document/d/1RLc7A5egnZTXRIU7VuDUEhS48q4EmQtt2GM_t5DZPIg/edit?usp=sharing"><img src="reglement.png">  RÈGLEMENT D’UTILISATION</a>
-<a href="https://docs.google.com/document/d/1qCGnPb2x362j0OupZAFq4QUYTR8ngCTxFYRwEbrApnY/edit?usp=sharing"><img src="presentation.png">   Présentation de NoxifyHost</a>
-  </ul>
-</nav>
-
-<div class="buttons">
-<button class="demo">DISCORD</button>
-<a href="https://client-noxifyhost.store" class="client">ESPACE CLIENT</a>
-</div>
+  <div class="buttons">
+    <a href="https://discord.gg/HhD2nzzryc" target="_blank" class="btn-discord">DISCORD</a>
+    <a href="https://client-noxifyhost.store" target="_blank" class="btn-client">ESPACE CLIENT</a>
+  </div>
 
 </header>
 
+<!-- HERO -->
 <section class="hero">
-
-<div>
-
-<h1>
-HEBERGEMENT DE SERVEUR<br>
-DE JEUX & VPS <span>PREMIUM</span>
-</h1>
-
-<p>
-Louez votre serveur de jeu ou VPS en quelques clics.<br>
-Machines puissantes avec protection Anti-DDoS.
-</p>
-
-<div class="hero-buttons">
-<button class="red">NOS JEUX</button>
-<button class="white">NOS VPS</button>
-</div>
-
-</div>
-
+  <div>
+    <h1>
+      HÉBERGEMENT DE SERVEUR<br>
+      DE JEUX &amp; VPS <span>PREMIUM</span>
+    </h1>
+    <p>
+      Louez votre serveur de jeu ou VPS en quelques clics.<br>
+      Machines puissantes avec protection Anti-DDoS.
+    </p>
+    <div class="hero-buttons">
+      <button class="btn-red" onclick="document.querySelector('.games').scrollIntoView({behavior:'smooth'})">NOS JEUX</button>
+      <button class="btn-white">NOS VPS</button>
+    </div>
+  </div>
 </section>
 
+<!-- JEUX -->
 <section class="games">
+  <div class="section-label">Catalogue</div>
+  <h2>Location de serveur de jeux</h2>
+  <p>Des serveurs optimisés pour chaque jeu, disponibles instantanément.</p>
 
-<h2>Location de serveur de jeux</h2>
+  <div class="games-grid">
 
-<div class="games-grid">
+    <div class="game-card">
+      <img src="https://img-c.udemycdn.com/course/480x270/6556249_f336.jpg" alt="FiveM">
+      <div class="game-info">
+        <h3>FiveM</h3>
+        <p>À partir de 2.99€</p>
+        <button class="btn-order" onclick="location.href='fivem.html'">Commander</button>
+      </div>
+    </div>
 
-<!-- JEUX EXACTEMENT COMME AVANT -->
+    <div class="game-card">
+      <img src="https://assets.nintendo.eu/image/upload/f_auto,c_limit,w_1920,q_auto:low/MNS/NOE/70010000000963/SQ_NSwitch_Minecraft" alt="Minecraft">
+      <div class="game-info">
+        <h3>Minecraft</h3>
+        <p>À partir de 4.99€</p>
+        <button class="btn-order" onclick="location.href='minecraft.html'">Commander</button>
+      </div>
+    </div>
 
-<div class="game-card">
-<img src="https://img-c.udemycdn.com/course/480x270/6556249_f336.jpg">
-<div class="game-info">
-<h3>FiveM</h3>
-<p>A partir de 2.99€</p>
-<button>Commander</button>
-</div>
-</div>
+    <div class="game-card">
+      <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/252490/header.jpg" alt="Rust">
+      <div class="game-info">
+        <h3>Rust</h3>
+        <p>À partir de 4.5€</p>
+        <button class="btn-order" style="opacity:0.5;cursor:default;" disabled>Bientôt</button>
+      </div>
+    </div>
 
-<div class="game-card">
-<img src="https://assets.nintendo.eu/image/upload/f_auto,c_limit,w_1920,q_auto:low/MNS/NOE/70010000000963/SQ_NSwitch_Minecraft">
-<div class="game-info">
-<h3>Minecraft</h3>
-<p>A partir de 4.99€</p>
-<button>Commander</button>
-</div>
-</div>
+    <div class="game-card">
+      <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/251570/header.jpg" alt="7 Days To Die">
+      <div class="game-info">
+        <h3>7 Days To Die</h3>
+        <p>À venir</p>
+        <button class="btn-order" style="opacity:0.5;cursor:default;" disabled>Bientôt</button>
+      </div>
+    </div>
 
-<div class="game-card">
-<img src="https://cdn.cloudflare.steamstatic.com/steam/apps/252490/header.jpg">
-<div class="game-info">
-<h3>Rust</h3>
-<p>A partir de 4.5€</p>
-<button>Commander</button>
-</div>
-</div>
+    <div class="game-card">
+      <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/346110/header.jpg" alt="ARK Survival">
+      <div class="game-info">
+        <h3>ARK Survival</h3>
+        <p>À partir de 7.99€</p>
+        <button class="btn-order">Commander</button>
+      </div>
+    </div>
 
-<div class="game-card">
-<img src="https://cdn.cloudflare.steamstatic.com/steam/apps/251570/header.jpg">
-<div class="game-info">
-<h3>7 Days To Die</h3>
-<p>A venir</p>
-<button>Commander</button>
-</div>
-</div>
+    <div class="game-card">
+      <img src="https://cdn.dlcompare.com/game_tetiere/upload/gameimage/file/garry-s-mod-file-53912cf2.jpeg.webp" alt="Garry's Mod">
+      <div class="game-info">
+        <h3>Garry's Mod</h3>
+        <p>À partir de 3.99€</p>
+        <button class="btn-order" onclick="location.href='Gmod.html'">Commander</button>
+      </div>
+    </div>
 
-<div class="game-card">
-<img src="https://cdn.cloudflare.steamstatic.com/steam/apps/346110/header.jpg">
-<div class="game-info">
-<h3>ARK Survival</h3>
-<p>A partir de 7.99€</p>
-<button>Commander</button>
-</div>
-</div>
-
-<div class="game-card">
-<img src="https://cdn.dlcompare.com/game_tetiere/upload/gameimage/file/garry-s-mod-file-53912cf2.jpeg.webp">
-<div class="game-info">
-<h3>Garry's Mod</h3>
-<p>A partir de 3.99€</p>
-<button>Commander</button>
-</div>
-</div>
-
-</div>
+  </div>
 </section>
 
+<!-- FEATURES -->
 <section>
+  <div class="section-label">Pourquoi nous ?</div>
+  <h2>Pourquoi choisir Noxify</h2>
+  <p>Performance, sécurité et simplicité — tout ce dont vous avez besoin.</p>
 
-<h2>Pourquoi choisir Noxify</h2>
+  <div class="features-grid">
 
-<div class="features-grid">
+    <div class="feature">
+      <img src="manette2.webp" class="feature-icon" alt="Gaming">
+      <h3>Serveurs Gaming</h3>
+      <p>Machines optimisées pour les performances en jeu, sans lag.</p>
+    </div>
 
-<div class="feature">
-<img src="manette2.webp" class="feature-icon">
-<h3>Serveurs Gaming</h3>
-<p>Machines optimisées pour les performances.</p>
-</div>
+    <div class="feature">
+      <img src="VPS2.webp" class="feature-icon" alt="NVMe">
+      <h3>NVMe Ultra Rapide</h3>
+      <p>Stockage NVMe pour des chargements et démarrages instantanés.</p>
+    </div>
 
-<div class="feature">
-<img src="VPS2.webp" class="feature-icon">
-<h3>NVMe Ultra Rapide</h3>
-<p>Stockage NVMe pour des chargements instantanés.</p>
-</div>
+    <div class="feature">
+      <img src="NDD.webp" class="feature-icon" alt="DDoS">
+      <h3>Protection Anti-DDoS</h3>
+      <p>Sécurité avancée contre toutes les attaques réseau.</p>
+    </div>
 
-<div class="feature">
-<img src="NDD.webp" class="feature-icon">
-<h3>Protection Anti-DDoS</h3>
-<p>Sécurité avancée contre les attaques.</p>
-</div>
-
-</div>
-
+  </div>
 </section>
 
+<!-- PANEL -->
 <section class="panel-section">
+  <div class="panel-container">
 
-<div class="panel-container">
+    <div class="panel-left">
+      <div class="section-label">Panel</div>
+      <h2><span>Panel</span> de gestion</h2>
+      <p>
+        Gardez le contrôle total de votre serveur en temps réel.
+        Console colorée, WebFTP intégré, sauvegardes automatiques
+        et planification des redémarrages — tout en un.
+      </p>
+    </div>
 
-<div class="panel-left">
+    <div class="panel-right">
+      <div class="panel-tabs">
+        <button class="active" onclick="changePanel('console.png',this)">Console</button>
+        <button onclick="changePanel('ftp.png',this)">WebFTP</button>
+        <button onclick="changePanel('backup.png',this)">Sauvegardes</button>
+        <button onclick="changePanel('plan.png',this)">Planification</button>
+      </div>
+      <div class="panel-image">
+        <img id="panel-img" src="console.png" alt="Panel">
+      </div>
+    </div>
 
-<h2><span>Panel</span> de gestion</h2>
-
-<h3>Console</h3>
-
-<p>
-Gardez le contrôle de votre serveur en temps réel.
-Consultez des logs colorés, surveillez les joueurs connectés
-et gérez votre serveur facilement.
-</p>
-
-</div>
-
-<div class="panel-right">
-
-<div class="panel-tabs">
-
-<button class="active" onclick="changePanel('console.png',this)">Console</button>
-<button onclick="changePanel('ftp.png',this)">WebFTP</button>
-<button onclick="changePanel('backup.png',this)">Sauvegardes</button>
-<button onclick="changePanel('plan.png',this)">Planification</button>
-
-</div>
-
-<div class="panel-image">
-<img id="panel-img" src="console.png">
-</div>
-
-</div>
-
-</div>
-
+  </div>
 </section>
 
+<!-- FOOTER -->
 <footer>
-
-<h3>Noxify Host</h3>
-<p>Hébergement de serveurs de jeux & VPS haute performance.</p>
-<br>
-<p>Minecraft • FiveM • VPS • Cloud</p>
-<br>
-<p>© 2026 Noxify Host</p>
-
+  <h3>Noxify Host</h3>
+  <p>Hébergement de serveurs de jeux &amp; VPS haute performance.</p>
+  <br>
+  <p>Minecraft • FiveM • Rust • Garry's Mod • VPS</p>
+  <br>
+  <p>
+    <a href="https://discord.gg/HhD2nzzryc" target="_blank">Discord</a>
+    &nbsp;•&nbsp;
+    <a href="https://client-noxifyhost.store" target="_blank">Espace Client</a>
+  </p>
+  <br>
+  <p>© 2026 Noxify Host — Tous droits réservés.</p>
 </footer>
 
 <script>
-
-function changePanel(image,button){
-
-document.getElementById("panel-img").src=image;
-
-let buttons=document.querySelectorAll(".panel-tabs button");
-
-buttons.forEach(btn=>btn.classList.remove("active"));
-
-button.classList.add("active");
-
+function changePanel(image, button){
+  document.getElementById("panel-img").src = image;
+  document.querySelectorAll(".panel-tabs button").forEach(btn => btn.classList.remove("active"));
+  button.classList.add("active");
 }
-
 </script>
 
 </body>

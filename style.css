@@ -1,7 +1,15 @@
+/* style.css — Noxify Host shared styles */
+
+:root{
+--accent:#8b5cf6;
+--accent-dark:#7c3aed;
+}
+
 body{
 margin:0;
-font-family:Arial;
+font-family:Poppins,sans-serif;
 background:#0e0e0e;
+color:white;
 }
 
 /* MENU PRINCIPAL */
@@ -9,8 +17,8 @@ background:#0e0e0e;
 .menu{
 display:flex;
 list-style:none;
-gap:40px;
-padding:20px;
+gap:0;
+padding:0;
 align-items:center;
 }
 
@@ -28,19 +36,21 @@ position:relative;
 
 .dropdown-menu{
 position:absolute;
-top:45px;
+top:calc(100% + 10px);
 left:0;
 background:#0e0e0e;
-padding:25px 40px;
-border-radius:10px;
+border:1px solid rgba(139,92,246,0.18);
+padding:20px 30px;
+border-radius:12px;
 display:flex;
-gap:60px;
+gap:40px;
 
 opacity:0;
 visibility:hidden;
-transform:translateY(10px);
-transition:0.25s;
-box-shadow:0 10px 30px rgba(255,255,255,0.2);
+transform:translateY(8px);
+transition:0.22s ease;
+box-shadow:0 10px 40px rgba(0,0,0,0.7);
+min-width:200px;
 }
 
 .dropdown:hover .dropdown-menu{
@@ -63,8 +73,11 @@ gap:12px;
 display:flex;
 align-items:center;
 gap:10px;
-color:#ccc;
-font-size:15px;
+color:#bbb;
+font-size:14px;
+text-decoration:none;
+transition:0.2s;
+white-space:nowrap;
 }
 
 .column a:hover{
